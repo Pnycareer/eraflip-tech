@@ -235,48 +235,67 @@ function TestimonialCarousel() {
   const colors = getColorClasses(testimonials[currentIndex].colorClass);
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Carousel Container */}
-      <div className="relative h-[500px] md:h-[450px] flex items-center justify-center mb-5">
+    <div className="relative overflow-hidden w-full">
+      {/* Carousel Container - HEIGHTS MADE RESPONSIVE */}
+      <div className="relative h-[550px] xs:h-[500px] sm:h-[480px] md:h-[450px] lg:h-[420px] flex items-center justify-center mb-5 px-2 xs:px-3 sm:px-4">
         
-        {/* SLIDE CONTAINER with SMOOTH TRANSITION */}
+        {/* SLIDE CONTAINER with SMOOTH TRANSITION - WIDTHS MADE RESPONSIVE */}
         <div 
-          key={currentIndex} // 🔑 This is CRITICAL for smooth animation
-          className={`absolute w-full max-w-3xl transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          key={currentIndex}
+          className={`absolute w-full xs:max-w-[95%] sm:max-w-[90%] md:max-w-3xl transition-all duration-600 ease-[cubic-bezier(0.4,0,0.2,1)] ${
             isAnimating
               ? direction === 'next'
-                ? '-translate-x-full opacity-0'   // Slide out to LEFT
-                : 'translate-x-full opacity-0'    // Slide out to RIGHT
-              : 'translate-x-0 opacity-100'       // Center position
+                ? '-translate-x-full opacity-0'
+                : 'translate-x-full opacity-0'
+              : 'translate-x-0 opacity-100'
           }`}
         >
-          <div className={`bg-white border-l-4 ${colors.border} rounded-xl p-8 shadow-2xl mx-4`}>
-            <div className="flex items-start gap-6">
-              {/* Client Avatar */}
-              <div className={`w-16 h-16 bg-gradient-to-br ${colors.gradientFrom} ${colors.gradientTo} rounded-full flex items-center justify-center border-2 ${colors.borderAvatar} flex-shrink-0`}>
-                <span className={`text-xl font-bold ${colors.text}`}>
+          {/* Testimonial Card - PADDING & SIZES MADE RESPONSIVE */}
+          <div className={`bg-white border-l-4 ${colors.border} rounded-xl xs:rounded-lg sm:rounded-xl shadow-2xl 
+                          p-6 xs:p-5 sm:p-6 md:p-8 mx-2 xs:mx-1 sm:mx-2 md:mx-4`}>
+            
+            {/* Flex column on small screens, row on larger */}
+            <div className="flex flex-col xs:flex-col sm:flex-row items-start gap-4 xs:gap-3 sm:gap-4 md:gap-6">
+              
+              {/* Client Avatar - RESPONSIVE SIZES */}
+              <div className={`w-14 xs:w-12 sm:w-14 md:w-16 
+                              h-14 xs:h-12 sm:h-14 md:h-16 
+                              bg-gradient-to-br ${colors.gradientFrom} ${colors.gradientTo} 
+                              rounded-full flex items-center justify-center 
+                              border-2 ${colors.borderAvatar} flex-shrink-0
+                              mx-auto xs:mx-auto sm:mx-0`}>
+                <span className={`text-lg xs:text-base sm:text-lg md:text-xl font-bold ${colors.text}`}>
                   {testimonials[currentIndex].initials}
                 </span>
               </div>
               
-              {/* Content */}
-              <div className="flex-1">
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              {/* Content - RESPONSIVE TEXT SIZES */}
+              <div className="flex-1 text-center xs:text-center sm:text-left">
+                <p className="text-gray-700 text-sm xs:text-xs sm:text-sm md:text-base lg:text-lg 
+                            leading-relaxed xs:leading-relaxed sm:leading-relaxed mb-4 xs:mb-3 sm:mb-4 md:mb-6">
                   "{testimonials[currentIndex].text}"
                 </p>
                 
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg">{testimonials[currentIndex].name}</h4>
-                  <p className="text-gray-500">{testimonials[currentIndex].role}</p>
-                  <p className="text-gray-400 text-sm">{testimonials[currentIndex].company}</p>
+                  <h4 className="font-bold text-gray-900 text-base xs:text-sm sm:text-base md:text-lg">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                  <p className="text-gray-500 text-sm xs:text-xs sm:text-xs md:text-sm">
+                    {testimonials[currentIndex].role}
+                  </p>
+                  <p className="text-gray-400 text-xs xs:text-[10px] sm:text-xs md:text-sm">
+                    {testimonials[currentIndex].company}
+                  </p>
                 </div>
                 
-                {/* Rating */}
-                <div className="flex items-center gap-1 mt-4">
+                {/* Rating - RESPONSIVE SIZES */}
+                <div className="flex items-center justify-center xs:justify-center sm:justify-start gap-1 mt-3 xs:mt-2 sm:mt-3 md:mt-4">
                   {[...Array(5)].map((_, i) => (
                     <svg 
                       key={i} 
-                      className="w-5 h-5 text-orange-400 fill-current" 
+                      className="w-4 xs:w-3.5 sm:w-4 md:w-5 
+                                h-4 xs:h-3.5 sm:h-4 md:h-5 
+                                text-orange-400 fill-current" 
                       viewBox="0 0 24 24"
                     >
                       <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -288,7 +307,7 @@ function TestimonialCarousel() {
           </div>
         </div>
 
-        {/* Manual Navigation Overlay (invisible buttons) */}
+        {/* Manual Navigation Overlay - RESPONSIVE */}
         <div className="absolute inset-0 z-30 flex">
           <button
             onClick={prevSlide}
@@ -303,8 +322,8 @@ function TestimonialCarousel() {
         </div>
       </div>
 
-      {/* Navigation Dots */}
-      <div className="flex justify-center gap-3 mt-4">
+      {/* Navigation Dots - RESPONSIVE */}
+      <div className="flex justify-center gap-2 xs:gap-2 sm:gap-3 mt-2 xs:mt-2 sm:mt-4">
         {testimonials.map((_, index) => (
           <button
             key={index}
@@ -313,7 +332,9 @@ function TestimonialCarousel() {
               const dir = index > currentIndex ? 'next' : 'prev';
               slideTo(index, dir);
             }}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 xs:w-2 sm:w-2.5 md:w-3 
+                       h-2.5 xs:h-2 sm:h-2.5 md:h-3 
+                       rounded-full transition-all duration-300 ${
               index === currentIndex 
                 ? 'bg-orange-500 scale-125' 
                 : 'bg-gray-300 hover:bg-gray-400'
@@ -323,12 +344,12 @@ function TestimonialCarousel() {
         ))}
       </div>
 
-      {/* Progress Bar */}
-      <div className="mt-8 max-w-md mx-auto">
-        <div className="text-center text-sm text-gray-500 mb-2">
+      {/* Progress Bar - RESPONSIVE */}
+      <div className="mt-4 xs:mt-3 sm:mt-4 md:mt-8 max-w-md mx-auto px-4 xs:px-2 sm:px-4">
+        <div className="text-center text-xs xs:text-[10px] sm:text-xs md:text-sm text-gray-500 mb-1 xs:mb-1 sm:mb-2">
           Review {currentIndex + 1} of {testimonials.length}
         </div>
-        <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
+        <div className="w-full h-1 xs:h-1 sm:h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
           <div 
             className="h-full bg-gradient-to-r from-orange-500 to-orange-600 transition-all duration-1000 ease-out"
             style={{ 
@@ -338,12 +359,12 @@ function TestimonialCarousel() {
         </div>
       </div>
 
-      {/* Instructions */}
-      <div className="text-center mt-6">
-        <p className="text-sm text-gray-500">
+      {/* Instructions - HIDE ON VERY SMALL SCREENS */}
+      <div className="text-center mt-4 xs:mt-3 sm:mt-4 md:mt-6 hidden xs:hidden sm:block">
+        <p className="text-xs xs:text-[10px] sm:text-xs md:text-sm text-gray-500">
           Click anywhere on left/right side to navigate • Auto-slides every 5 seconds
         </p>
-        <p className="text-xs text-gray-400 mt-1">
+        <p className="text-[10px] xs:text-[8px] sm:text-[10px] md:text-xs text-gray-400 mt-1">
           Or use ← → arrow keys on keyboard
         </p>
       </div>
@@ -1170,9 +1191,11 @@ const Home = () => {
           Get innovative, high-performance tech solutions tailored to your needs.
           </p>
         </div>
+        <Link href="/contact-us">
         <button className="px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-gray-900 hover:to-gray-800 hover:scale-105 transition-all duration-400 whitespace-nowrap">
           Contact Our Team
         </button>
+        </Link>
       </div>
     </motion.div>
   </div>
@@ -1181,7 +1204,7 @@ const Home = () => {
 
 
 {/* Section 5 – WHY CHOOSE US (Clean Boxes Layout) */}
-<section className="pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-26 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 bg-white relative overflow-visible font-[Montserrat,sans-serif]">
+<section className="pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-26 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 bg-white relative overflow-hidden font-[Montserrat,sans-serif]">
   {/* ===== DELICATE BLUE & GREEN LINES ===== */}
   <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
     <svg
@@ -1191,7 +1214,7 @@ const Home = () => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
     >
-      {/* Delicate blue line */}
+      {/* Delicate blue line - becomes dark blue on hover */}
       <path
         d="M-15 400 
            C240 300, 390 460, 590 330 
@@ -1201,9 +1224,10 @@ const Home = () => {
         strokeWidth="2"
         strokeLinecap="round"
         fill="none"
+        className="transition-colors duration-300 group-hover/value-boxes:stroke-blue-800/40"
       />
       
-      {/* Delicate green line */}
+      {/* Delicate orange line - becomes dark orange on hover */}
       <path
         d="M-5 430 
            C250 330, 400 490, 600 360 
@@ -1213,6 +1237,7 @@ const Home = () => {
         strokeWidth="2"
         strokeLinecap="round"
         fill="none"
+        className="transition-colors duration-300 group-hover/value-boxes:stroke-orange-800/40"
       />
     </svg>
   </div>
@@ -1252,8 +1277,8 @@ const Home = () => {
       <div className="w-8 sm:w-10 h-0.5 sm:h-1 bg-gradient-to-l from-transparent via-orange-400 to-transparent rounded-full"></div>
     </div>
 
-    {/* Value Boxes */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mt-8 sm:mt-10 md:mt-12 lg:mt-14">
+    {/* Value Boxes - Added group/value-boxes class here */}
+    <div className="group/value-boxes grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mt-8 sm:mt-10 md:mt-12 lg:mt-14">
 
       {[
         {
@@ -1285,15 +1310,15 @@ const Home = () => {
                 : 'border-green-200'
             }
             shadow-[0_4px_20px_rgba(0,0,0,0.05)] sm:shadow-[0_8px_30px_rgba(0,0,0,0.06)]
-            transition-all duration-500 ease-out
-            hover:-translate-y-1 sm:hover:-translate-y-2
+            transition-all duration-300 ease-out
+            hover:scale-[1.02] hover:shadow-xl
             group relative overflow-hidden
             ${
               item.hoverColor === 'orange' 
-                ? 'hover:shadow-[0_12px_40px_rgba(249,115,22,0.1)] sm:hover:shadow-[0_20px_50px_rgba(249,115,22,0.12)] hover:border hover:border-orange-300' 
+                ? 'hover:shadow-[0_20px_40px_rgba(249,115,22,0.15)] hover:border-orange-300' 
                 : item.hoverColor === 'blue'
-                ? 'hover:shadow-[0_12px_40px_rgba(59,130,246,0.1)] sm:hover:shadow-[0_20px_50px_rgba(59,130,246,0.12)] hover:border hover:border-blue-300'
-                : 'hover:shadow-[0_12px_40px_rgba(34,197,94,0.1)] sm:hover:shadow-[0_20px_50px_rgba(34,197,94,0.12)] hover:border hover:border-green-300'
+                ? 'hover:shadow-[0_20px_40px_rgba(59,130,246,0.15)] hover:border-blue-300'
+                : 'hover:shadow-[0_20px_40px_rgba(34,197,94,0.15)] hover:border-green-300'
             }
           `}
         >
@@ -1301,7 +1326,7 @@ const Home = () => {
           <div 
             className={`
               absolute inset-0 rounded-xl sm:rounded-2xl md:rounded-[28px] -z-10
-              transition-all duration-700 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-br from-orange-100/60 via-white to-orange-50/40'
@@ -1317,7 +1342,7 @@ const Home = () => {
             className={`
               absolute inset-0 rounded-xl sm:rounded-2xl md:rounded-[28px] -z-5
               opacity-0 group-hover:opacity-100
-              transition-all duration-700 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-br from-orange-200/50 via-white to-orange-100/40'
@@ -1332,7 +1357,7 @@ const Home = () => {
           <div 
             className={`
               absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 -z-5
-              transition-all duration-800 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-bl from-orange-200/50 via-orange-100/20 to-transparent'
@@ -1348,7 +1373,7 @@ const Home = () => {
             className={`
               absolute top-0 right-0 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 -z-5
               opacity-0 group-hover:opacity-100
-              transition-all duration-800 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-bl from-orange-300/60 via-orange-200/30 to-transparent'
@@ -1356,7 +1381,6 @@ const Home = () => {
                   ? 'bg-gradient-to-bl from-blue-300/60 via-blue-200/30 to-transparent'
                   : 'bg-gradient-to-bl from-green-300/60 via-green-200/30 to-transparent'
               }
-              group-hover:translate-x-0.5 group-hover:-translate-y-0.5
             `}
           ></div>
 
@@ -1364,7 +1388,7 @@ const Home = () => {
           <div 
             className={`
               absolute bottom-0 left-0 w-full h-16 sm:h-20 md:h-24 -z-5
-              transition-all duration-800 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-t from-orange-100/40 via-orange-50/25 to-transparent'
@@ -1380,7 +1404,7 @@ const Home = () => {
             className={`
               absolute bottom-0 left-0 w-full h-20 sm:h-24 md:h-28 -z-5
               opacity-0 group-hover:opacity-100
-              transition-all duration-800 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-t from-orange-200/50 via-orange-100/30 to-transparent'
@@ -1402,7 +1426,7 @@ const Home = () => {
                   ? 'border-blue-200/30'
                   : 'border-green-600/80'
               }
-              transition-all duration-700 ease-out
+              transition-all duration-300 ease-out
               group-hover:border-2
               ${
                 item.hoverColor === 'orange'
@@ -1419,13 +1443,13 @@ const Home = () => {
             className={`
               absolute inset-0 rounded-xl sm:rounded-2xl md:rounded-[28px] -z-20
               opacity-0 group-hover:opacity-100
-              transition-all duration-700 ease-out
-              box-shadow ${
+              transition-opacity duration-300 ease-out
+              ${
                 item.hoverColor === 'orange'
-                  ? '[0_0_0_1px_rgba(249,115,22,0.3)]'
+                  ? 'shadow-[0_0_0_1px_rgba(249,115,22,0.3)]'
                   : item.hoverColor === 'blue'
-                  ? '[0_0_0_1px_rgba(59,130,246,0.3)]'
-                  : '[0_0_0_1px_rgba(34,197,94,0.3)]'
+                  ? 'shadow-[0_0_0_1px_rgba(59,130,246,0.3)]'
+                  : 'shadow-[0_0_0_1px_rgba(34,197,94,0.3)]'
               }
             `}
           ></div>
@@ -1434,8 +1458,8 @@ const Home = () => {
           <div 
             className={`
               relative w-12 sm:w-14 h-1.5 sm:h-2 rounded-full mb-3 sm:mb-4 md:mb-5 overflow-hidden
-              transition-all duration-500 ease-out
-              group-hover:w-14 sm:group-hover:w-16 group-hover:h-1.5 sm:group-hover:h-2.5
+              transition-all duration-300 ease-out
+              group-hover:w-14 sm:group-hover:w-16 group-hover:h-1.5 sm:group-hover:h-2
             `}
           >
             <div 
@@ -1444,12 +1468,12 @@ const Home = () => {
                 bg-gradient-to-r
                 ${
                   item.hoverColor === 'orange'
-                    ? 'from-orange-400 via-orange-500 to-orange-600 group-hover:from-orange-500 group-hover:via-orange-600 group-hover:to-orange-700'
+                    ? 'from-orange-400 via-orange-500 to-orange-600'
                     : item.hoverColor === 'blue'
-                    ? 'from-blue-400 via-blue-500 to-blue-600 group-hover:from-blue-500 group-hover:via-blue-600 group-hover:to-blue-700'
-                    : 'from-green-400 via-green-500 to-green-600 group-hover:from-green-500 group-hover:via-green-600 group-hover:to-green-700'
+                    ? 'from-blue-400 via-blue-500 to-blue-600'
+                    : 'from-green-400 via-green-500 to-green-600'
                 }
-                transition-all duration-500
+                transition-all duration-300
               `}
             ></div>
           </div>
@@ -1457,7 +1481,7 @@ const Home = () => {
           <h3 
             className={`
               text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3
-              transition-colors duration-400
+              transition-colors duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'text-gray-900 group-hover:text-orange-700'
@@ -1470,7 +1494,7 @@ const Home = () => {
             {item.title}
           </h3>
 
-          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-400">
+          <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300 ease-out">
             {item.desc}
           </p>
 
@@ -1479,7 +1503,7 @@ const Home = () => {
             className={`
               absolute inset-0 rounded-xl sm:rounded-2xl md:rounded-[28px] -z-5
               opacity-0 group-hover:opacity-100
-              transition-all duration-700 ease-out
+              transition-opacity duration-300 ease-out
               ${
                 item.hoverColor === 'orange'
                   ? 'bg-gradient-to-tr from-orange-200/30 via-orange-100/15 to-transparent'
@@ -1717,13 +1741,11 @@ const Home = () => {
     <div className="relative">
       {/* Technologies decorative image - Responsive */}
       <img
-        src="/images/BRYETPeTACkgcPaaTFFAedWYE0Q.png"
-        alt="Decorative"
-        className="absolute hidden sm:block sm:-top-24 sm:-left-4 
-                 md:-top-32 md:-left-5 
-                 lg:-top-40 lg:-left-5 
-                 w-50 h-50 sm:w-54 sm:h-54 md:w-58 md:h-58 lg:w-62 lg:h-62  z-0 pointer-events-none"
-      />
+  src="/images/BRYETPeTACkgcPaaTFFAedWYE0Q.png"
+  alt="Decorative"
+  className="absolute hidden xl:block xl:-top-40 xl:-left-5 
+           w-50 h-50 xl:w-62 xl:h-62 z-0 pointer-events-none"
+/>
 
       {/* Section Header - Technologies */}
       <div className="text-center mb-8 sm:mb-10 lg:mb-12 xl:mb-16">

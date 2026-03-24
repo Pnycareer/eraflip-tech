@@ -1,265 +1,237 @@
 'use client';
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef, useMemo, useState } from 'react';
-import * as THREE from 'three';
+import { useState } from 'react';
 import Link from "next/link";
-
-// Simple particle system (future use if needed)
-const Particles = () => {
-  const particlesRef = useRef();
-  const count = 1500;
-
-  const positions = useMemo(() => {
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const i3 = i * 3;
-      const radius = 10 + Math.random() * 20;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-
-      positions[i3] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i3 + 2] = radius * Math.cos(phi);
-    }
-    return positions;
-  }, [count]);
-
-  const colors = useMemo(() => {
-    const colors = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const i3 = i * 3;
-      const color = new THREE.Color();
-      color.setHSL(0.65, 0.4, 0.4);
-      colors[i3] = color.r;
-      colors[i3 + 1] = color.g;
-      colors[i3 + 2] = color.b;
-    }
-    return colors;
-  }, [count]);
-
-  useFrame((state) => {
-    if (particlesRef.current) {
-      const time = state.clock.elapsedTime;
-      particlesRef.current.rotation.x = time * 0.01;
-      particlesRef.current.rotation.y = time * 0.005;
-    }
-  });
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
-        <bufferAttribute attach="attributes-color" count={colors.length / 3} array={colors} itemSize={3} />
-      </bufferGeometry>
-      <pointsMaterial size={0.04} vertexColors transparent opacity={0.5} sizeAttenuation blending={THREE.AdditiveBlending} />
-    </points>
-  );
-};
+import toast, { Toaster } from 'react-hot-toast';
 
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState({ type: '', message: '' });
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterStatus, setNewsletterStatus] = useState({ type: '', message: '' });
-
-  // Formspree endpoints - replace with your actual Formspree endpoints
-  const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/your-form-id-here'; // Contact form endpoint
-  const NEWSLETTER_ENDPOINT = 'https://formspree.io/f/your-newsletter-id-here'; // Newsletter endpoint (optional)
-
-  const handleContactSubmit = async (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus({ type: 'loading', message: 'Submitting...' }); // Yahan "Submitting" kiya hai
-
+    setIsSubmitting(true);
+    
     const formData = new FormData(e.target);
     
+    // Loading toast
+    const loadingToast = toast.loading(
+      <div className="flex items-center gap-3">
+        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        <span className="text-gray-700">Sending...</span>
+      </div>,
+      {
+        style: {
+          background: '#f9fafb',
+          color: '#374151',
+          borderRadius: '12px',
+          padding: '14px 24px',
+          boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1)',
+          border: '1px solid #e5e7eb',
+        },
+      }
+    );
+
     try {
-      const response = await fetch(CONTACT_FORM_ENDPOINT, {
+      const response = await fetch('https://formsubmit.co/ajax/info@eraflip.com', {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        body: formData
       });
 
       if (response.ok) {
-        setFormStatus({ type: 'success', message: 'Thank you! Your message has been sent.' });
-        e.target.reset(); // Reset form on success
+        toast.dismiss(loadingToast);
+        
+        // Success toast
+        toast.custom(
+          (t) => (
+            <div
+              className={`bg-white border border-gray-200 rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 transform transition-all duration-300 ${
+                t.visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+              }`}
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Thank you!</p>
+                <p className="text-sm text-gray-500">We'll contact you within 24 hours</p>
+              </div>
+            </div>
+          ),
+          { duration: 5000, position: 'top-center' }
+        );
+
+        e.target.reset();
       } else {
-        const data = await response.json();
-        setFormStatus({ type: 'error', message: data.error || 'Something went wrong. Please try again.' });
+        toast.dismiss(loadingToast);
+        toast.custom(
+          (t) => (
+            <div
+              className={`bg-white border border-gray-200 rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 transform transition-all duration-300 ${
+                t.visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+              }`}
+            >
+              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Something went wrong</p>
+                <p className="text-sm text-gray-500">Please try again</p>
+              </div>
+            </div>
+          ),
+          { duration: 5000, position: 'top-center' }
+        );
       }
     } catch (error) {
-      setFormStatus({ type: 'error', message: 'Network error. Please check your connection.' });
-    }
-  };
-
-  const handleNewsletterSubmit = async (e) => {
-    e.preventDefault();
-    if (!newsletterEmail) return;
-    
-    setNewsletterStatus({ type: 'loading', message: 'Submitting...' });
-
-    const formData = new FormData();
-    formData.append('email', newsletterEmail);
-    formData.append('_subject', 'Newsletter Subscription - Eraflip Tech');
-
-    try {
-      const response = await fetch(NEWSLETTER_ENDPOINT || CONTACT_FORM_ENDPOINT, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setNewsletterStatus({ type: 'success', message: 'Successfully submitted!' });
-        setNewsletterEmail('');
-      } else {
-        const data = await response.json();
-        setNewsletterStatus({ type: 'error', message: data.error || 'Submitting failed. Please try again.' });
-      }
-    } catch (error) {
-      setNewsletterStatus({ type: 'error', message: 'Network error. Please check your connection.' });
+      toast.dismiss(loadingToast);
+      toast.custom(
+        (t) => (
+          <div
+            className={`bg-white border border-gray-200 rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 transform transition-all duration-300 ${
+              t.visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+            }`}
+          >
+            <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+              <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-semibold text-gray-900">Network error</p>
+              <p className="text-sm text-gray-500">Check your connection</p>
+            </div>
+          </div>
+        ),
+        { duration: 5000, position: 'top-center' }
+      );
+    } finally {
+    setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="w-full bg-white pt-12 pb-12 sm:pt-20 sm:pb-20 lg:py-24 px-4 sm:px-6 mt-12 sm:mt-16 lg:mt-20">
-      <div className="max-w-full lg:max-w-6xl mx-auto">
+    <>
+      <Toaster position="top-center" reverseOrder={false} />
 
-        {/* Heading */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-3 sm:mb-4">
-            Contact Us
-          </h2>
-          <p className="text-gray-600 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto px-2 sm:px-0 text-sm sm:text-base">
-            Team Eraflip Tech is just a click away from you. Connect with us to get
-            solutions to your business growth, market existence, and sustainability.
-          </p>
-        </div>
+      <section className="w-full bg-white pt-12 pb-12 sm:pt-20 sm:pb-20 lg:py-24 px-4 sm:px-6 mt-12 sm:mt-16 lg:mt-20">
+        <div className="max-w-full lg:max-w-6xl mx-auto">
 
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16">
-
-          {/* LEFT SIDE - Contact Form */}
-          <div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">
-              Share your project idea with us
-            </h3>
-
-            <form onSubmit={handleContactSubmit} className="space-y-3 sm:space-y-4">
-              <input 
-                type="text" 
-                name="name"
-                placeholder="Name" 
-                required
-                className="w-full border border-gray-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-black focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base" 
-              />
-              <input 
-                type="email" 
-                name="email"
-                placeholder="Email Address" 
-                required
-                className="w-full border border-gray-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-black focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base" 
-              />
-
-              <select 
-                name="category"
-                className="w-full border border-gray-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-black focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-gray-500 text-sm sm:text-base appearance-none bg-white pr-12 sm:pr-14 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMHB4IiBoZWlnaHQ9IjIwcHgiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iYmxhY2siPjxwYXRoIGQ9Ik03IDEwbDUgNSA1LTV6Ii8+PC9zdmc+')] bg-no-repeat bg-[center_right_1rem] bg-[length:30px]"
-              >
-                <option value="">Select Category</option>
-                <option value="Game Development">Game Development</option>
-                <option value="Web Development">Web Development</option>
-                <option value="App Development">App Development</option>
-              </select>
-
-              <input 
-                type="text" 
-                name="budget"
-                placeholder="Approx Budget" 
-                className="w-full border border-gray-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-black focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base" 
-              />
-
-              <textarea 
-                name="message"
-                placeholder="Project Details" 
-                rows={4} 
-                required
-                className="w-full border border-gray-300 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 outline-none hover:border-black focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 resize-none text-sm sm:text-base"
-              ></textarea>
-
-              {/* Hidden field for email notification */}
-              <input type="hidden" name="_to" value="info@eraflip.com" />
-              <input type="hidden" name="_subject" value="New Contact Form Submission - Eraflip Tech" />
-              <input type="hidden" name="_replyto" value="" />
-
-              {formStatus.message && (
-                <div className={`text-center p-3 rounded-lg ${
-                  formStatus.type === 'success' ? 'bg-green-100 text-green-700' : 
-                  formStatus.type === 'error' ? 'bg-red-100 text-red-700' : 
-                  'bg-blue-100 text-blue-700'
-                }`}>
-                  {formStatus.message}
-                </div>
-              )}
-
-              <button 
-                type="submit"
-                disabled={formStatus.type === 'loading'}
-                className="bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:scale-105 transition w-full text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {formStatus.type === 'loading' ? 'Submitting...' : 'Submit Project'}  {/* Yahan 'Submitting...' kiya hai */}
-              </button>
-            </form>
+          {/* Heading */}
+          <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-3 sm:mb-4">
+              Contact Us
+            </h2>
+            <p className="text-gray-600 max-w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto px-2 sm:px-0 text-sm sm:text-base">
+              Team Eraflip Tech is just a click away from you. Connect with us to get
+              solutions to your business growth, market existence, and sustainability.
+            </p>
           </div>
 
-          {/* RIGHT SIDE - Newsletter */}
-          <div>
-            <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">
-              Stay up to date on global innovations.
-            </h3>
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-16">
 
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
-              <input
-                type="email"
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                placeholder="Your email"
-                required
-                className="flex-1 border border-gray-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-black focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base"
-              />
-              <button 
-                type="submit"
-                disabled={newsletterStatus.type === 'loading'}
-                className="bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:scale-105 transition w-full sm:w-auto text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {newsletterStatus.type === 'loading' ? 'Submitting...' : 'Sign Up'}
-              </button>
-            </form>
+            {/* LEFT SIDE */}
+            <div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">
+                Share your project idea with us
+              </h3>
 
-            {newsletterStatus.message && (
-              <div className={`text-center p-3 rounded-lg mb-4 ${
-                newsletterStatus.type === 'success' ? 'bg-green-100 text-green-700' : 
-                newsletterStatus.type === 'error' ? 'bg-red-100 text-red-700' : 
-                'bg-blue-100 text-blue-700'
-              }`}>
-                {newsletterStatus.message}
-              </div>
-            )}
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                <input type="hidden" name="_subject" value="New Project Inquiry from Eraflip Website" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://eraflip.com/thank-you" />
+                
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Your Name" 
+                  required
+                  className="w-full border border-gray-300 rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base" 
+                />
+                
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Your Email Address" 
+                  required
+                  className="w-full border border-gray-300 rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base" 
+                />
 
-            {/* IMAGE BELOW EMAIL */}
-            <div className="w-full flex justify-center">
-              <img
-                src="/images/Eraflip-Countermesh.png"
-                alt="Fantasy Characters"
-                className="w-full max-w-sm sm:max-w-md object-contain mt-6 sm:mt-8 lg:mt-10"
-              />
+                <select 
+                  name="category"
+                  required
+                  className="w-full border border-gray-300 rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-gray-500 text-sm sm:text-base appearance-none bg-white pr-12 sm:pr-14"
+                  style={{
+                    backgroundImage: `url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjYgOSAxMiAxNSAxOCA5Ii8+PC9zdmc+')`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center right 1rem',
+                    backgroundSize: '16px',
+                  }}
+                >
+                  <option value="">Select Category</option>
+                  <option value="Game Development">Game Development</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="App Development">App Development</option>
+                </select>
+
+                <input 
+                  type="text" 
+                  name="budget"
+                  placeholder="Approx Budget" 
+                  required
+                  className="w-full border border-gray-300 rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base" 
+                />
+
+                <textarea 
+                  name="details"
+                  placeholder="Project Details" 
+                  rows={4} 
+                  required
+                  className="w-full border border-gray-300 rounded-xl px-4 sm:px-6 py-3 sm:py-4 outline-none hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 resize-none text-sm sm:text-base"
+                ></textarea>
+
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl hover:bg-gray-800 transition w-full text-sm sm:text-base disabled:opacity-50 disabled:hover:bg-black"
+                >
+                  {isSubmitting ? 'Sending...' : 'Submit Project'}
+                </button>
+              </form>
             </div>
-          </div>
 
+            {/* RIGHT SIDE */}
+            <div>
+              <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">
+                Stay up to date on global innovations.
+              </h3>
+
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="flex-1 border border-gray-300 rounded-xl px-4 sm:px-6 py-2.5 sm:py-3 outline-none hover:border-gray-400 focus:border-black focus:ring-1 focus:ring-black transition-all duration-300 text-sm sm:text-base"
+                />
+                <button className="bg-black text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl hover:bg-gray-800 transition w-full sm:w-auto text-sm sm:text-base">
+                  Sign Up
+                </button>
+              </div>
+
+              <div className="w-full flex justify-center">
+                <img
+                  src="/images/Eraflip-Countermesh.png"
+                  alt="Fantasy Characters"
+                  className="w-full max-w-sm sm:max-w-md object-contain mt-6 sm:mt-8 lg:mt-10"
+                />
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

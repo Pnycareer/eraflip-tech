@@ -208,7 +208,7 @@ const SocialMediaManagement = () => {
   >
     <Link href="/contact-us" className="mt-auto">
       <Button className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 text-sm sm:text-base md:text-lg rounded-xl w-full sm:w-auto">
-        Start SMM Campaign
+        Launch Your Social Growth 
       </Button>
     </Link>
   </motion.div>
@@ -352,7 +352,7 @@ const SocialMediaManagement = () => {
                   {/* Features List */}
                   <div className="mb-8 flex-grow mt-6">
                     <div className="space-y-3">
-                      {["Strategy Development", "Platform Analysis", "Audience Research","	Competitor Benchmarking"].map((feature, index) => (
+                      {["Strategy Development", "Platform Analysis", "Audience Research","Competitor Benchmarking"].map((feature, index) => (
                         <div key={index} className="flex items-center gap-3 group/item">
                           <div className="relative">
                             <div className="absolute -inset-1 bg-orange-100/30 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
