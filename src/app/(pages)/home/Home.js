@@ -31,7 +31,7 @@ import group12 from "../../../../public/images/group12.png"
 import group13 from "../../../../public/images/group13.png"
 import group14 from "../../../../public/images/group14.png"
 
-import maincharac from "../../../../public/images/mainn.png";
+import mainn2 from "../../../../public/images/mainn2.png";
 import abouti from "../../../../public/images/abouti.png";
 import birds1 from "../../../../public/images/birds1.png";
 import fbird from "../../../../public/images/fbird.png";
@@ -391,10 +391,10 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
 {/* Section 1 - ONLY SLIDE ANIMATIONS */}
-<section className="relative min-h-screen mt-15 bg-white overflow-hidden
+<section className="relative min-h-screen mt-15  bg-white overflow-hidden
                    py-12 sm:py-16 md:py-20 lg:py-20 2xl:py-24
                    px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20
-                   mb-[-110px] sm:mb-[-130px] md:mb-[-150px] lg:mb-[-160px] xl:mb-[-180px] 2xl:mb-[-210px]">
+                   mb-[-80px] sm:mb-[-90px] md:mb-[-120px] lg:mb-[-130px] xl:mb-[-150px] 2xl:mb-[-100px]">
   
   {/* CONTAINER — ab 2XL aur 3XL pe aur bada, taake image ko space mile */}
   <div className="max-w-[1400px] 2xl:max-w-[2000px] 3xl:max-w-[2400px] mx-auto min-h-screen flex flex-col lg:flex-row items-center justify-center 
@@ -472,33 +472,33 @@ const Home = () => {
       </motion.div>
     </div>
 
-    {/* RIGHT IMAGE — ab thoda chhota */}
-<div className="w-full lg:w-1/2 flex justify-center lg:justify-start 
-               px-4 sm:px-6 md:px-8 lg:px-0 
-               lg:pl-6 xl:pl-8 2xl:pl-12">
+   <div className="w-full flex justify-center lg:justify-start px-0 pt-0">
   <motion.div
     initial={{ opacity: 0, x: 100 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.7 }}
-    className="relative max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-xl 2xl:max-w-3xl 2xl:w-[600px] 2xl:max-w-full"
+    className="relative -mt-5 md:-mt-10 lg:-mt-15 xl:-mt-20"
   >
     <Image
-      src={maincharac}
+      src={mainn2}
       alt="Gaming Warrior"
-      width={750}
-      height={550}
-      quality={85}
+      width={2100}
+      height={1000}
+      quality={100}
       className="w-full h-auto drop-shadow-xl rounded-xl sm:rounded-2xl"
       priority
     />
   </motion.div>
 </div>
+
+
+
   </div>
 </section>
 
 
 {/* Section 2 */}
-<section className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden bg-white w-full">
+<section className="relative py-4 sm:py-8 md:py-12 lg:py-16 overflow-hidden bg-white w-full">
   {/* Main Container */}
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full">
     {/* Header - Space Reduced */}
