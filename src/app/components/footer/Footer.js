@@ -87,7 +87,7 @@ const Footer = () => {
               </div>
 
               <div className="flex gap-3 mt-3">
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/profile.php?id=100078771672925" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="outline"
                     size="icon"
@@ -96,16 +96,8 @@ const Footer = () => {
                     <Facebook className="h-4 w-4" />
                   </Button>
                 </a>
-                <a href="https://www.twitter.com/YourUsername" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="bg-[#0b2b4f] text-white hover:bg-blue-400 hover:border-blue-400 hover:text-white transition-all duration-300"
-                  >
-                    <Twitter className="h-4 w-4" />
-                  </Button>
-                </a>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                
+                <a href="https://www.instagram.com/eraflip_tech/" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="outline"
                     size="icon"
@@ -117,13 +109,13 @@ const Footer = () => {
               </div>
 
               <div className="flex gap-3 mt-2">
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-block">
+                <a href="https://www.linkedin.com/company/eraflip-tech/" target="_blank" rel="noopener noreferrer" className="inline-block">
                   <Button variant="ghost" size="sm" className="text-gray-300 hover:text-orange-400 hover:bg-[#0b2b4f] transition-all duration-300">
                     <Linkedin className="h-3 w-3 mr-1" />
                     <span className="text-xs">LinkedIn</span>
                   </Button>
                 </a>
-                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://youtube.com/@erafliptech?si=7rrsE5J1bTeJ-Xed" target="_blank" rel="noopener noreferrer">
                   <Button variant="ghost" size="sm" className="text-gray-300 hover:text-red-500 hover:bg-[#0b2b4f] transition-all duration-300">
                     <Youtube className="h-3 w-3 mr-1" />
                     <span className="text-xs">YouTube</span>
@@ -146,17 +138,7 @@ const Footer = () => {
                       Copy Link
                     </button>
 
-                    <a
-                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                        "Check this out!"
-                      )}&url=${encodeURIComponent(url)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-blue-400 hover:bg-[#0b2b4f] rounded transition-colors"
-                    >
-                      <Twitter className="h-4 w-4 mr-2 text-blue-400" />
-                      Share on Twitter
-                    </a>
+                  
 
                     <a
                       href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
@@ -169,7 +151,7 @@ const Footer = () => {
                     </a>
 
                     <a
-                      href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                      href={`https://www.linkedin.com/company/eraflip-tech/=${encodeURIComponent(
                         url
                       )}&title=${encodeURIComponent(title)}`}
                       target="_blank"
