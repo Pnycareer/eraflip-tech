@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Link from "next/link";
 import toast, { Toaster } from 'react-hot-toast';
+import { CheckCircle, X } from 'lucide-react';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false); // modal state
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -38,77 +40,38 @@ const Contact = () => {
 
       if (response.ok) {
         toast.dismiss(loadingToast);
-        
-        // Success toast
-        toast.custom(
-          (t) => (
-            <div
-              className={`bg-white border border-gray-200 rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 transform transition-all duration-300 ${
-                t.visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-              }`}
-            >
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900">Thank you!</p>
-                <p className="text-sm text-gray-500">We'll contact you within 24 hours</p>
-              </div>
-            </div>
-          ),
-          { duration: 5000, position: 'top-center' }
-        );
-
         e.target.reset();
+        setShowSuccess(true);  // show modal
+        
+        // Auto close after 4 seconds
+        setTimeout(() => setShowSuccess(false), 4000);
       } else {
         toast.dismiss(loadingToast);
-        toast.custom(
-          (t) => (
-            <div
-              className={`bg-white border border-gray-200 rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 transform transition-all duration-300 ${
-                t.visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-              }`}
-            >
-              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-semibold text-gray-900">Something went wrong</p>
-                <p className="text-sm text-gray-500">Please try again</p>
-              </div>
-            </div>
-          ),
-          { duration: 5000, position: 'top-center' }
-        );
+        toast.error('Something went wrong. Please try again.', {
+          duration: 5000,
+          position: 'top-center',
+          style: {
+            background: '#fef2f2',
+            color: '#991b1b',
+            borderRadius: '12px',
+            padding: '14px 24px',
+          },
+        });
       }
     } catch (error) {
       toast.dismiss(loadingToast);
-      toast.custom(
-        (t) => (
-          <div
-            className={`bg-white border border-gray-200 rounded-2xl shadow-xl px-6 py-4 flex items-center gap-4 transform transition-all duration-300 ${
-              t.visible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
-            }`}
-          >
-            <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-              <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <div>
-              <p className="font-semibold text-gray-900">Network error</p>
-              <p className="text-sm text-gray-500">Check your connection</p>
-            </div>
-          </div>
-        ),
-        { duration: 5000, position: 'top-center' }
-      );
+      toast.error('Network error. Check your connection.', {
+        duration: 5000,
+        position: 'top-center',
+        style: {
+          background: '#fffbeb',
+          color: '#92400e',
+          borderRadius: '12px',
+          padding: '14px 24px',
+        },
+      });
     } finally {
-    setIsSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -202,7 +165,7 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* RIGHT SIDE */}
+            {/* RIGHT SIDE (unchanged) */}
             <div>
               <h3 className="text-lg sm:text-xl font-semibold mb-5 sm:mb-6">
                 Stay up to date on global innovations.
@@ -231,6 +194,57 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      {/* SUCCESS MODAL (blur bg + green card) */}
+      {showSuccess && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 px-4">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setShowSuccess(false)}></div>
+          
+          {/* Green Card */}
+          <div className="relative bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden border-t-4 border-emerald-500">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowSuccess(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors z-10"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            
+            {/* Content */}
+            <div className="p-8">
+              {/* Icon */}
+              <div className="flex justify-center mb-5">
+                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-8 h-8 text-emerald-500" />
+                </div>
+              </div>
+              
+              {/* Text */}
+              <div className="text-center">
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">
+                  Message Sent Successfully
+                </h3>
+                
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Thank you for contacting us. Our team will review your message and get back to you within 24 hours.
+                </p>
+                
+                {/* Divider */}
+                <div className="w-12 h-0.5 bg-emerald-100 mx-auto my-4"></div>
+                
+                {/* Time Info */}
+                <p className="text-xs text-emerald-600 font-medium">
+                  Response expected within 24 hours
+                </p>
+              </div>
+            </div>
+            
+            {/* Bottom Indicator */}
+            <div className="h-1 w-full bg-gradient-to-r from-emerald-100 via-emerald-300 to-emerald-100"></div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
