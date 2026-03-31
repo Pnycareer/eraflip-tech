@@ -643,12 +643,10 @@ const Home = () => {
         clipPath: "polygon(0% 0%, 88% 0%, 100% 22%, 100% 100%, 0% 100%)",
         borderRadius: "42px 0 0 42px",
         transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-        boxShadow: "0 30px 40px -15px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(255,255,255,0.2)"
+        boxShadow: "0 0px 0px -15px rgba(0, 0, 0, 0.3), inset 0 0 0px rgba(255,255,255,0.2)"
       }}
     >    
-     {/* Corner Accents */}
-      <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-white/30 rounded-tl-[60px]"></div>
-      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-white/30 rounded-br-[60px]"></div>
+    
 
       {/* CONTENT */}
       <div className="max-w-3xl space-y-4 sm:space-y-5 md:space-y-6 relative z-10">
