@@ -29,6 +29,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.3",
     "react-hot-toast": "^2.6.0",
+    "react-toastify": "^11.0.5",
     "react-tsparticles": "^2.12.2",
     "tailwind-merge": "^3.4.0",
     "three": "^0.182.0"

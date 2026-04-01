@@ -72,99 +72,109 @@ const Footer = () => {
         
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Left Column - Logo + Social */}
-            <div className="flex flex-col items-center lg:items-start">
-              {/* White Background Logo Box with Gaming Tech Border */}
-              <div className="p-4 bg-white rounded-lg shadow-lg mb-4 border border-gray-300">
-                <Image
-                  src="/images/Eraflip-logo-png-scaled-e1756981494806-1024x720-1.png"
-                  alt="Eraflip Logo"
-                  width={200}
-                  height={144}
-                  className="h-36 w-auto object-contain"
-                  priority
-                />
-              </div>
+          {/* Left Column - Logo + Social */}
+<div className="flex flex-col items-center lg:items-start">
+  {/* White Background Logo Box with Gaming Tech Border */}
+  <div className="p-4 bg-white rounded-lg shadow-lg mb-4 border border-gray-300">
+    <Image
+      src="/images/Eraflip-logo-png-scaled-e1756981494806-1024x720-1.png"
+      alt="Eraflip Logo"
+      width={200}
+      height={144}
+      className="h-36 w-auto object-contain"
+      priority
+    />
+  </div>
 
-              <div className="flex gap-3 mt-3">
-                <a href="https://www.facebook.com/profile.php?id=100078771672925" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="bg-[#0b2b4f]  text-white hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300"
-                  >
-                    <Facebook className="h-4 w-4" />
-                  </Button>
-                </a>
-                
-                <a href="https://www.instagram.com/eraflip_tech/" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="bg-[#0b2b4f] text-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-orange-500 hover:border-transparent hover:text-white transition-all duration-300"
-                  >
-                    <Instagram className="h-4 w-4" />
-                  </Button>
-                </a>
-              </div>
+  {/* Social Icons - First Row */}
+  <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-3">
+    <a href="https://www.facebook.com/profile.php?id=100078771672925" target="_blank" rel="noopener noreferrer">
+      <Button
+        variant="outline"
+        size="icon"
+        className="bg-[#0b2b4f] text-white hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300"
+      >
+        <Facebook className="h-4 w-4" />
+      </Button>
+    </a>
 
-              <div className="flex gap-3 mt-2">
-                <a href="https://www.linkedin.com/company/eraflip-tech/" target="_blank" rel="noopener noreferrer" className="inline-block">
-                  <Button variant="ghost" size="sm" className="text-gray-300 hover:text-orange-400 hover:bg-[#0b2b4f] transition-all duration-300">
-                    <Linkedin className="h-3 w-3 mr-1" />
-                    <span className="text-xs">LinkedIn</span>
-                  </Button>
-                </a>
-                <a href="https://youtube.com/@erafliptech?si=7rrsE5J1bTeJ-Xed" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="sm" className="text-gray-300 hover:text-red-500 hover:bg-[#0b2b4f] transition-all duration-300">
-                    <Youtube className="h-3 w-3 mr-1" />
-                    <span className="text-xs">YouTube</span>
-                  </Button>
-                </a>
+    <a href="https://www.instagram.com/eraflip_tech/" target="_blank" rel="noopener noreferrer">
+      <Button
+        variant="outline"
+        size="icon"
+        className="bg-[#0b2b4f] text-white hover:bg-gradient-to-r hover:from-purple-600 hover:to-orange-500 hover:border-transparent hover:text-white transition-all duration-300"
+      >
+        <Instagram className="h-4 w-4" />
+      </Button>
+    </a>
 
-                {/* Share dropdown */}
-                <div className="relative group">
-                  <Button variant="ghost" size="sm" className="text-gray-300 hover:text-orange-400 hover:bg-[#0b2b4f] transition-all duration-300">
-                    <Share2 className="h-3 w-3 mr-1" />
-                    <span className="text-xs">Share</span>
-                  </Button>
+    <a href="https://www.linkedin.com/company/eraflip-tech/" target="_blank" rel="noopener noreferrer">
+      <Button
+        variant="outline"
+        size="icon"
+        className="bg-[#0b2b4f] text-white hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300"
+      >
+        <Linkedin className="h-4 w-4" />
+      </Button>
+    </a>
 
-                  <div className="absolute bottom-full left-0 mb-2 hidden group-hover:block bg-[#0b2b4f] rounded-lg shadow-lg p-2 min-w-[180px] z-50 border">
-                    <button
-                      onClick={handleCopyLink}
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-orange-400 hover:bg-[#0b2b4f] rounded transition-colors"
-                    >
-                      <Copy className="h-4 w-4 mr-2 text-blue-400" />
-                      Copy Link
-                    </button>
+    <a href="https://youtube.com/@erafliptech?si=7rrsE5J1bTeJ-Xed" target="_blank" rel="noopener noreferrer">
+      <Button
+        variant="outline"
+        size="icon"
+        className="bg-[#0b2b4f] text-white hover:bg-red-600 hover:border-red-600 hover:text-white transition-all duration-300"
+      >
+        <Youtube className="h-4 w-4" />
+      </Button>
+    </a>
+  </div>
 
-                  
+    {/* Share Dropdown */}
+    <div className="flex justify-center lg:justify-start mt-3">
+      <div className="relative group">
+        <Button
+          variant="outline"
+          size="default"
+          className="bg-[#0b2b4f] text-white hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all duration-300 gap-2 px-4"
+        >
+          <Share2 className="h-4 w-4" />
+          <span className="text-xs">Share</span>
+        </Button>
 
-                    <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-blue-600 hover:bg-[#0b2b4f] rounded transition-colors"
-                    >
-                      <Facebook className="h-4 w-4 mr-2 text-blue-600 border border-white/30 rounded-full p-0.5" />
-                      Share on Facebook
-                    </a>
+        <div className="absolute bottom-full left-0 mb-2 hidden group-hover:block bg-[#0b2b4f] rounded-lg shadow-lg p-2 min-w-[180px] z-50 border">
+          <button
+            onClick={handleCopyLink}
+            className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-orange-400 hover:bg-[#0b2b4f] rounded transition-colors"
+          >
+            <Copy className="h-4 w-4 mr-2 text-blue-400" />
+            Copy Link
+          </button>
 
-                    <a
-                      href={`https://www.linkedin.com/company/eraflip-tech/=${encodeURIComponent(
-                        url
-                      )}&title=${encodeURIComponent(title)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-blue-700 hover:bg-[#0b2b4f] rounded transition-colors"
-                    >
-                      <Linkedin className="h-4 w-4 mr-2 text-blue-700" />
-                      Share on LinkedIn
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-blue-600 hover:bg-[#0b2b4f] rounded transition-colors"
+          >
+            <Facebook className="h-4 w-4 mr-2 text-blue-600 border border-white/30 rounded-full p-0.5" />
+            Share on Facebook
+          </a>
+
+          <a
+            href={`https://www.linkedin.com/company/eraflip-tech/=${encodeURIComponent(
+              url
+            )}&title=${encodeURIComponent(title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center w-full px-3 py-2 text-sm text-gray-300 hover:text-blue-700 hover:bg-[#0b2b4f] rounded transition-colors"
+          >
+            <Linkedin className="h-4 w-4 mr-2 text-blue-700" />
+            Share on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
 
             {/* Right Columns - Links */}
             <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">

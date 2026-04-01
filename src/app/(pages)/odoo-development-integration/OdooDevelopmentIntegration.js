@@ -375,10 +375,11 @@ const OdooDevelopmentIntegration = () => {
                   </div>
 
                   {/* Action Button */}
+                   <a href="/contact-us">
                   <button className="w-full py-3.5 mt-10 rounded-xl bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold shadow-md hover:shadow-lg hover:from-orange-600 hover:to-amber-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-300/20 to-amber-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative">Get Quote</span>
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </motion.div>
@@ -447,10 +448,11 @@ const OdooDevelopmentIntegration = () => {
                   </div>
 
                   {/* Action Button */}
+                   <a href="/contact-us">
                   <button className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-cyan-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative">Get Quote</span>
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </motion.div>
@@ -519,10 +521,11 @@ const OdooDevelopmentIntegration = () => {
                   </div>
 
                   {/* Action Button */}
+                   <a href="/contact-us">
                   <button className="w-full py-3.5 mt-18 rounded-xl bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold shadow-md hover:shadow-lg hover:from-orange-600 hover:to-amber-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-300/20 to-amber-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative">Get Quote</span>
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </motion.div>
@@ -591,10 +594,11 @@ const OdooDevelopmentIntegration = () => {
                   </div>
 
                   {/* Action Button */}
+                   <a href="/contact-us">
                   <button className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold shadow-md hover:shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-cyan-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative">Get Quote</span>
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </motion.div>
@@ -663,10 +667,11 @@ const OdooDevelopmentIntegration = () => {
                   </div>
 
                   {/* Action Button */}
+                   <a href="/contact-us">
                   <button className="w-full py-3.5 mt-6 rounded-xl bg-gradient-to-r from-violet-500 to-purple-400 text-white font-semibold shadow-md hover:shadow-lg hover:from-violet-600 hover:to-purple-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-r from-violet-300/20 to-purple-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative">Get Quote</span>
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </motion.div>
@@ -735,10 +740,11 @@ const OdooDevelopmentIntegration = () => {
                   </div>
 
                   {/* Action Button */}
+                   <a href="/contact-us">
                   <button className="w-full py-3.5 rounded-xl mt-6 bg-gradient-to-r from-emerald-500 to-teal-400 text-white font-semibold shadow-md hover:shadow-lg hover:from-emerald-600 hover:to-teal-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
                     <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/20 to-teal-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <span className="relative">Get Quote</span>
-                  </button>
+                  </button></a>
                 </div>
               </div>
             </motion.div>

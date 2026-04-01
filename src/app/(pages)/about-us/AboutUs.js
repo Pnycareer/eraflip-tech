@@ -315,8 +315,8 @@ export default function AboutUs() {
             pageLoaded ? "slide-in-visible" : ""
           }`}
         >
-          <span className="block text-orange-500">INNOVATE</span>
-          BUILD GROW
+          <span className="block text-orange-500">Innovate</span>
+          Build Grow
         </h1>
       </div>
 
@@ -407,7 +407,7 @@ export default function AboutUs() {
 
               {/* Heading */}
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 text-center">
-                ABOUT <span className="text-orange-500">US</span>
+                About <span className="text-orange-500">Us</span>
               </h2>
 
               {/* Right line */}

@@ -37,6 +37,8 @@ import birds1 from "../../../../public/images/birds1.png";
 import fbird from "../../../../public/images/fbird.png";
 import Drone1 from "../../../../public/images/Drone1.png";
 import tDrone from "../../../../public/images/tDrone.png";
+import final from "../../../../public/images/final.png";
+
 
 
 
@@ -448,9 +450,9 @@ const Home = () => {
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, delay: 0.8 }}
-        className="text-base sm:text-md md:text-lg 2xl:text-xl text-gray-600 mt-4 sm:mt-5 md:mt-6 2xl:mt-8 text-justify max-w-sm sm:max-w-md md:max-w-lg 2xl:max-w-xl leading-relaxed"
+        className="text-base sm:text-md md:text-lg 2xl:text-xl text-gray-600 mt-4 sm:mt-5 md:mt-6 2xl:mt-8  max-w-sm sm:max-w-md md:max-w-lg 2xl:max-w-xl leading-relaxed"
       >
-       We are a global multi-service studio transforming bold ideas into powerful platforms, seamless digital solutions, and stunning games for all platforms worldwide.Bringing ideas to life with innovation, artistry, and technical excellence.
+       We are a global multi-service studio transforming bold ideas into powerful platforms, seamless digital solutions, and stunning games for all platforms worldwide. Bringing ideas to life with innovation, artistry, and technical excellence.
       </motion.p>
 
       {/* CTA BUTTONS — original */}
@@ -466,7 +468,7 @@ const Home = () => {
                            hover:bg-orange-600 transition-all duration-300 
                            hover:-translate-y-0.5 shadow-lg hover:shadow-xl 
                            text-sm sm:text-base 2xl:text-lg">
-            Get Started.
+            Get Started
           </button>
         </a>
       </motion.div>
@@ -515,8 +517,8 @@ const Home = () => {
         transition={{ delay: 0.4 }}
         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-2 sm:mb-3 md:mb-4 leading-tight text-gray-900 w-full"
       >
-        <span className="block">Power UP</span>
-        <span className="block text-orange-500 mt-1 sm:mt-2">YOUR GROWTH</span>
+        <span className="block">Power Up</span>
+        <span className="block text-orange-500 mt-1 sm:mt-2">Your Growth</span>
       </motion.h2>
       <motion.div
         initial={{ width: 0 }}
@@ -675,7 +677,8 @@ const Home = () => {
           </p>
           
           {/* Decorative quote mark */}
-          <span className="absolute -top-4 -left-2 text-6xl text-white/10 font-serif">"</span>
+          <span className="absolute -top-4 -left-4 text-6xl text-white/10 font-serif">"</span>
+          <span className="absolute -bottom-5 pl-106 text-6xl text-white/10 font-serif">"</span>
         </div>
         
         
@@ -804,10 +807,12 @@ const Home = () => {
             </div>
 
             {/* Action Button */}
+            <a href="/game-development">
             <button className="w-full py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-orange-600 hover:to-amber-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-300/20 to-amber-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Get Quote</span>
+              <span className="relative">View Details</span>
             </button>
+            </a>
           </div>
         </div>
       </motion.div>
@@ -876,10 +881,12 @@ const Home = () => {
             </div>
 
             {/* Action Button */}
+            <a href="/web-development">
             <button className="w-full mt-6 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-cyan-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Get Quote</span>
+              <span className="relative">View Details</span>
             </button>
+            </a>
           </div>
         </div>
       </motion.div>
@@ -948,10 +955,12 @@ const Home = () => {
             </div>
 
             {/* Action Button */}
+            <a href="/digital-marketing-ppc-campaigns">
             <button className="w-full mt-5 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-emerald-600 hover:to-teal-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-300/20 to-teal-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Get Quote</span>
+              <span className="relative">View Details</span>
             </button>
+            </a>
           </div>
         </div>
       </motion.div>
@@ -1020,10 +1029,12 @@ const Home = () => {
             </div>
 
             {/* Action Button */}
+            <a href="/iot-smart-solutions">
             <button className="w-full mt-12 py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-violet-500 to-purple-400 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-violet-600 hover:to-purple-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-r from-violet-300/20 to-purple-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Get Quote</span>
+              <span className="relative">View Details</span>
             </button>
+            </a>
           </div>
         </div>
       </motion.div>
@@ -1092,10 +1103,12 @@ const Home = () => {
             </div>
 
             {/* Action Button */}
+            <a href="/content-creation">
             <button className="w-full py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-orange-600 hover:to-amber-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-300/20 to-amber-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Get Quote</span>
+              <span className="relative">View Details</span>
             </button>
+            </a>
           </div>
         </div>
       </motion.div>
@@ -1164,10 +1177,12 @@ const Home = () => {
             </div>
 
             {/* Action Button */}
+            <a href="/design-creative-services">
             <button className="w-full py-2.5 sm:py-3 md:py-3.5 rounded-lg sm:rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-400 relative overflow-hidden group-hover:scale-[1.02]">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-300/20 to-cyan-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <span className="relative">Get Quote</span>
+              <span className="relative">View Details</span>
             </button>
+            </a>
           </div>
         </div>
       </motion.div>
@@ -1266,10 +1281,9 @@ const Home = () => {
       {/* Left Line */}
       <div className="w-8 sm:w-10 h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 
-      {/* Heading */}
-      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 text-center px-2">
-        WHY <span className="text-orange-500">CHOOSE US</span>
-      </h2>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 text-center px-2">
+  Why <span className="text-orange-500">Choose Us</span>
+</h2>
 
       {/* Right Line */}
       <div className="w-8 sm:w-10 h-0.5 sm:h-1 bg-gradient-to-l from-transparent via-orange-400 to-transparent rounded-full"></div>
@@ -1716,8 +1730,8 @@ const Home = () => {
         <div className="w-6 sm:w-8 lg:w-10 h-0.5 sm:h-1 bg-gradient-to-l from-transparent via-orange-400 to-transparent rounded-full"></div>
 
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-gray-900 text-center px-2">
-          From Our<span className="text-orange-500">Clients</span>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 text-center px-2">
+          From Our<span className="text-orange-500"> Clients</span>
         </h2>
 
         {/* Right Line */}
@@ -1750,7 +1764,7 @@ const Home = () => {
         <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
           <div className="w-6 sm:w-8 lg:w-10 h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent rounded-full"></div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 text-center px-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 text-center px-2">
             Our <span className="text-orange-500">Expertise</span>
           </h2>
 
