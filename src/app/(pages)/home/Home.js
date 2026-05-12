@@ -31,13 +31,12 @@ import group12 from "../../../../public/images/group12.png"
 import group13 from "../../../../public/images/group13.png"
 import group14 from "../../../../public/images/group14.png"
 
-import mainn2 from "../../../../public/images/mainn2.png";
+import finalimg from "../../../../public/images/finalimg.png";
 import abouti from "../../../../public/images/abouti.png";
 import birds1 from "../../../../public/images/birds1.png";
 import fbird from "../../../../public/images/fbird.png";
 import Drone1 from "../../../../public/images/Drone1.png";
 import tDrone from "../../../../public/images/tDrone.png";
-import final from "../../../../public/images/final.png";
 
 
 
@@ -474,15 +473,15 @@ const Home = () => {
       </motion.div>
     </div>
 
-   <div className="w-full flex justify-center lg:justify-start px-0 pt-0">
+<div className="w-full flex justify-center lg:justify-start px-0 pt-0">
   <motion.div
     initial={{ opacity: 0, x: 100 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.7 }}
-    className="relative -mt-5 md:-mt-10 lg:-mt-15 xl:-mt-20"
+    className="relative -mt-5 md:-mt-10 lg:-mt-15 xl:-mt-20 translate-y-5 scale-105"
   >
     <Image
-      src={mainn2}
+      src={finalimg}
       alt="Gaming Warrior"
       width={2100}
       height={1000}
@@ -492,7 +491,6 @@ const Home = () => {
     />
   </motion.div>
 </div>
-
 
 
   </div>
