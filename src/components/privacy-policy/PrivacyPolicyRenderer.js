@@ -75,17 +75,12 @@ function SectionBlock({ block }) {
 
 export default function PrivacyPolicyRenderer({ policy }) {
   return (
-    <main className="min-h-screen bg-[linear-gradient(180deg,#fff7ed_0%,#fffdf9_34%,#f5f7fb_100%)] pt-44 text-slate-900 sm:pt-48 lg:pt-52">
-      <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-[linear-gradient(180deg,#fff7ed_0%,#fffdf9_34%,#f5f7fb_100%)] text-slate-900">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <header className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/80 px-6 py-8 shadow-[0_20px_80px_rgba(15,23,42,0.08)] backdrop-blur">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(249,115,22,0.16),transparent_30%),radial-gradient(circle_at_left,rgba(59,130,246,0.08),transparent_38%)]" />
           <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-orange-700">
-                <span className="h-2 w-2 rounded-full bg-orange-500" />
-                Eraflip Tech Privacy Policy
-              </div>
-
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-200">
                   <Image
@@ -108,17 +103,10 @@ export default function PrivacyPolicyRenderer({ policy }) {
                 </div>
               </div>
             </div>
-
-            <div className="grid gap-3 sm:grid-cols-2 lg:w-[26rem]">
-              <MetaPill label="Last updated" value={policy.updatedAt} />
-              <MetaPill label="Platform" value={policy.platform} />
-              <MetaPill label="Services" value={policy.servicesSummary} />
-              <MetaPill label="Contact" value={policy.contact.email} />
-            </div>
           </div>
         </header>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_19rem]">
+        <div className="mt-8">
           <article className="rounded-[2rem] border border-slate-200 bg-white/90 px-6 py-8 shadow-[0_16px_60px_rgba(15,23,42,0.06)] sm:px-10">
             <p className="max-w-4xl text-lg leading-8 text-slate-700">
               {policy.intro}
@@ -145,71 +133,6 @@ export default function PrivacyPolicyRenderer({ policy }) {
               ))}
             </div>
           </article>
-
-          <aside className="space-y-4 lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
-                Quick facts
-              </h2>
-              <ul className="mt-4 space-y-3 text-sm text-slate-700">
-                {policy.highlights.map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-orange-500" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-950 p-6 text-white shadow-sm">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">
-                Contact
-              </h2>
-
-              <div className="mt-4 space-y-3 text-sm leading-6 text-slate-200">
-                <p>
-                  <span className="block text-slate-400">Email</span>
-                  <a
-                    href={`mailto:${policy.contact.email}`}
-                    className="font-medium text-white transition hover:text-orange-300"
-                  >
-                    {policy.contact.email}
-                  </a>
-                </p>
-                <p>
-                  <span className="block text-slate-400">Website</span>
-                  <a
-                    href={policy.contact.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-white transition hover:text-orange-300"
-                  >
-                    {policy.contact.website}
-                  </a>
-                </p>
-                <p>
-                  <span className="block text-slate-400">Phone</span>
-                  <a
-                    href={`tel:${policy.contact.phone.replace(/\s+/g, "")}`}
-                    className="font-medium text-white transition hover:text-orange-300"
-                  >
-                    {policy.contact.phone}
-                  </a>
-                </p>
-                <p>
-                  <span className="block text-slate-400">Address</span>
-                  <span className="font-medium text-white">
-                    {policy.contact.addressLines.join(", ")}
-                  </span>
-                </p>
-              </div>
-
-              <div className="mt-6 border-t border-white/10 pt-4 text-xs leading-5 text-slate-400">
-                This layout is data-driven, so new game policies can be added by
-                registering another policy object and route slug.
-              </div>
-            </div>
-          </aside>
         </div>
       </div>
     </main>

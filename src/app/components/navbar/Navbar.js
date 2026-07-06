@@ -17,6 +17,7 @@ const Navbar = () => {
   const mobileServicesRef = useRef(null);
   const timeoutRef = useRef(null);
   const pathname = usePathname();
+  const hideOnPrivacyPolicy = pathname.startsWith("/privacy-policy");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -89,6 +90,10 @@ const Navbar = () => {
     setIsMobileServicesOpen(false);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
+
+  if (hideOnPrivacyPolicy) {
+    return null;
+  }
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-transparent md:mt-5">

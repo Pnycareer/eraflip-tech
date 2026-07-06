@@ -24,6 +24,7 @@ import {
   Share2,
   Copy,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const [url, setUrl] = useState("");
@@ -31,6 +32,8 @@ const Footer = () => {
   const [year, setYear] = useState("");
   const [footerVisible, setFooterVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const hideOnPrivacyPolicy = pathname.startsWith("/privacy-policy");
 
   useEffect(() => {
     setUrl(window.location.href);
@@ -57,6 +60,10 @@ const Footer = () => {
       alert("Link copied to clipboard!");
     }
   };
+
+  if (hideOnPrivacyPolicy) {
+    return null;
+  }
 
   return (
     <>
