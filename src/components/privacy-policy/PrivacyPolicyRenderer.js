@@ -103,6 +103,10 @@ export default function PrivacyPolicyRenderer({ policy }) {
                 </div>
               </div>
             </div>
+
+            <div className="lg:w-[16rem]">
+              <MetaPill label="Last updated" value={policy.updatedAt} />
+            </div>
           </div>
         </header>
 
