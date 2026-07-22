@@ -531,6 +531,201 @@ export const privacyPolicies = {
     aboutGame:
       "Road Rush: Traffic Jam Puzzle is an engaging 3D traffic puzzle game where players strategically move cars through congested roads, solve challenging traffic jams, and progress through increasingly difficult levels. With a variety of vehicles, exciting power-ups, and unique obstacles, the game is designed to provide a fun and rewarding puzzle-solving experience for players of all ages.",
   }),
+
+  "brick-arrow-escape-puzzle": {
+    ...createStandardPolicy({
+      slug: "brick-arrow-escape-puzzle",
+      gameName: "Brick Arrow: Escape Puzzle",
+      aboutGame:
+        "Brick Arrow: Escape Puzzle is a fun and challenging puzzle game where players strategically place directional arrows to guide a moving brick toward the finish point while avoiding obstacles and dead ends. Each level introduces new mechanics and increasingly complex layouts that test logical thinking, planning, and problem-solving skills. The game is designed to provide an engaging and entertaining puzzle-solving experience for players of all ages.",
+      updatedAt: "20/07/2026",
+      metaDescription:
+        "Privacy Policy for Brick Arrow: Escape Puzzle by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
+    }),
+    title: "Privacy Policy - Brick Arrow: Escape Puzzle",
+    intro:
+      "Eraflip Tech built Brick Arrow: Escape Puzzle as a free game for Android devices. This SERVICE is provided by Eraflip Tech at no cost and is intended for use as is.",
+    sections: [
+      {
+        title: "About the Game",
+        content: [
+          {
+            type: "paragraph",
+            text:
+              "Brick Arrow: Escape Puzzle is a fun and challenging puzzle game where players strategically place directional arrows to guide a moving brick toward the finish point while avoiding obstacles and dead ends. Each level introduces new mechanics and increasingly complex layouts that test logical thinking, planning, and problem-solving skills. The game is designed to provide an engaging and entertaining puzzle-solving experience for players of all ages.",
+          },
+        ],
+      },
+      {
+        title: "Information Collection and Use",
+        content: [
+          {
+            type: "paragraph",
+            text: "We do not directly collect, store, or share any personal information from users.",
+          },
+          {
+            type: "paragraph",
+            text:
+              "However, the game uses Google AdMob and Firebase, third-party services provided by Google, which may automatically collect certain information to provide advertisements, improve app performance, and maintain the quality of the game.",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Device type and model",
+              "Operating system version",
+              "Advertising ID (Google Advertising ID)",
+              "IP address (approximate location)",
+              "App interactions (ad views, clicks, impressions)",
+              "Gameplay events and analytics",
+              "Crash reports and performance diagnostics",
+            ],
+          },
+          {
+            type: "paragraph",
+            text:
+              "This information is collected by Google, not by Eraflip Tech, and may be used to show relevant advertisements, measure ad performance, improve app stability and performance, analyze gameplay trends, detect crashes and technical issues, and prevent fraud and abuse.",
+          },
+          {
+            type: "paragraph",
+            text: "Eraflip Tech does not have access to personally identifiable user data.",
+          },
+        ],
+      },
+      {
+        title: "Third-Party Services",
+        content: [
+          {
+            type: "paragraph",
+            text: "The game uses the following third-party services:",
+          },
+          {
+            type: "links",
+            items: [
+              {
+                label: "Google AdMob (Google LLC)",
+                href: "https://policies.google.com/privacy",
+                description: "Privacy Policy",
+              },
+              {
+                label: "Google Ad Technology",
+                href: "https://policies.google.com/technologies/ads",
+                description: "Ad Technology",
+              },
+              {
+                label: "Firebase (Google LLC)",
+                href: "https://firebase.google.com/support/privacy",
+                description: "Firebase Privacy & Security",
+              },
+            ],
+          },
+          {
+            type: "paragraph",
+            text:
+              "Google may use cookies, identifiers, and similar technologies to provide advertising, analytics, and crash reporting services.",
+          },
+        ],
+      },
+      {
+        title: "Personalized Ads & User Choices",
+        content: [
+          {
+            type: "paragraph",
+            text:
+              "Depending on your region, you may be asked for consent to receive personalized ads.",
+          },
+          {
+            type: "paragraph",
+            text:
+              "You can manage your advertising preferences through your Android device settings:",
+          },
+          {
+            type: "steps",
+            items: [
+              "Settings -> Google -> Ads",
+              "Reset Advertising ID",
+              "Delete Advertising ID",
+              "Opt out of Ads Personalization",
+            ],
+          },
+          {
+            type: "paragraph",
+            text:
+              "You may continue to see advertisements, but they may be less relevant to your interests.",
+          },
+        ],
+      },
+      {
+        title: "Children's Privacy",
+        content: [
+          {
+            type: "paragraph",
+            text: "Brick Arrow: Escape Puzzle is suitable for users of all ages.",
+          },
+          {
+            type: "paragraph",
+            text: "We do not knowingly collect personal information from children.",
+          },
+          {
+            type: "paragraph",
+            text:
+              "Google AdMob may serve non-personalized advertisements where required by applicable laws or platform policies. Firebase services are used to improve application stability and performance and are not intended to personally identify users.",
+          },
+          {
+            type: "paragraph",
+            text:
+              "If you believe that a child has provided personal information through the application, please contact us so that we can take appropriate action.",
+          },
+        ],
+      },
+      {
+        title: "Security",
+        content: [
+          {
+            type: "paragraph",
+            text: "We do not store user data on our own servers.",
+          },
+          {
+            type: "paragraph",
+            text:
+              "Advertisement delivery, analytics, crash reporting, and related data processing are securely managed by Google through AdMob and Firebase under Google's privacy and security policies. We strive to provide a safe, secure, and reliable gaming experience for all players.",
+          },
+        ],
+      },
+      {
+        title: "Changes to This Privacy Policy",
+        content: [
+          {
+            type: "paragraph",
+            text: "We may update this Privacy Policy from time to time.",
+          },
+          {
+            type: "paragraph",
+            text:
+              "Any updates will be reflected on this page with an updated date. You are advised to review this page periodically for any changes.",
+          },
+        ],
+      },
+      {
+        title: "Contact Us",
+        content: [
+          {
+            type: "paragraph",
+            text:
+              "If you have any questions or concerns regarding this Privacy Policy, you can contact us:",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Email: support@eraflip.com",
+              "Website: https://erafliptech.com",
+              "Phone: +92 309 7770073",
+              "Address: 428N, Johar Town, Lahore, Pakistan",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export const privacyPolicyList = Object.values(privacyPolicies).sort((a, b) =>
