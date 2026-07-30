@@ -726,6 +726,36 @@ export const privacyPolicies = {
       },
     ],
   },
+
+  "speed-asmr-keyboard-escape": createStandardPolicy({
+    slug: "speed-asmr-keyboard-escape",
+    gameName: "Speed ASMR Keyboard Escape",
+    aboutGame:
+      "Speed ASMR Keyboard Escape is a fast-paced, oddly satisfying runner game where players race across giant candy and chocolate-themed keyboards, collecting speed boosts to escape obstacles. With smooth ASMR-style visuals and sound effects, the game is designed to provide a relaxing yet exciting pick-up-and-play experience for players of all ages.",
+    updatedAt: "29/07/2026",
+    metaDescription:
+      "Privacy Policy for Speed ASMR Keyboard Escape by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
+  }),
+
+  "rest-stop-tycoon": createStandardPolicy({
+    slug: "rest-stop-tycoon",
+    gameName: "Rest Stop Tycoon",
+    aboutGame:
+      "Rest Stop Tycoon is a fun and addictive idle tycoon game where players build and manage their own roadside rest stop business. Players construct shops, attract a steady stream of customers, sell items to increase average customer spend, and use the rebirth system to grow their business faster. The game is designed to provide an engaging business simulation experience for players of all ages.",
+    updatedAt: "29/07/2026",
+    metaDescription:
+      "Privacy Policy for Rest Stop Tycoon by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
+  }),
+
+  "paint-flags": createStandardPolicy({
+    slug: "paint-flags",
+    gameName: "Paint Flags",
+    aboutGame:
+      "Paint Flags is a relaxing and educational coloring game where players paint the flags of over 200 countries, regions, and territories, including all 193 officially recognized UN member states. Players can display their completed flags around the game's base. The game is designed to provide a calming and informative experience for players of all ages.",
+    updatedAt: "29/07/2026",
+    metaDescription:
+      "Privacy Policy for Paint Flags by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
+  }),
 };
 
 export const privacyPolicyList = Object.values(privacyPolicies).sort((a, b) =>
