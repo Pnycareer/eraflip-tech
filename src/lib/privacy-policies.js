@@ -727,14 +727,14 @@ export const privacyPolicies = {
     ],
   },
 
-  "speed-asmr-keyboard-escape": createStandardPolicy({
-    slug: "speed-asmr-keyboard-escape",
-    gameName: "Speed ASMR Keyboard Escape",
+  "keyboard-asmr-speed-escape": createStandardPolicy({
+    slug: "keyboard-asmr-speed-escape",
+    gameName: "Keyboard ASMR Speed Escape",
     aboutGame:
-      "Speed ASMR Keyboard Escape is a fast-paced, oddly satisfying runner game where players race across giant candy and chocolate-themed keyboards, collecting speed boosts to escape obstacles. With smooth ASMR-style visuals and sound effects, the game is designed to provide a relaxing yet exciting pick-up-and-play experience for players of all ages.",
+      "Keyboard ASMR Speed Escape is a fast-paced, oddly satisfying runner game where players race across giant candy and chocolate-themed keyboards, collecting speed boosts to escape obstacles. With smooth ASMR-style visuals and sound effects, the game is designed to provide a relaxing yet exciting pick-up-and-play experience for players of all ages.",
     updatedAt: "29/07/2026",
     metaDescription:
-      "Privacy Policy for Speed ASMR Keyboard Escape by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
+      "Privacy Policy for Keyboard ASMR Speed Escape by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
   }),
 
   "rest-stop-tycoon": createStandardPolicy({
