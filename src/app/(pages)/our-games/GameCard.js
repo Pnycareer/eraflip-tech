@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 function GooglePlayIcon({ className = "w-5 h-5" }) {
@@ -39,7 +40,7 @@ export default function GameCard({ game, index }) {
       transition={{ duration: 0.5, delay: (index % 8) * 0.06, ease: "easeOut" }}
       className="group relative flex flex-col items-center"
     >
-      <a href={game.playStore} target="_blank" rel="noopener noreferrer" className="block">
+      <Link href={`/our-games/${game.slug}`} className="block">
         <div
           ref={cardRef}
           onMouseMove={handleMouseMove}
@@ -58,7 +59,7 @@ export default function GameCard({ game, index }) {
             className="object-cover group-hover:scale-110 transition-transform duration-700"
           />
         </div>
-      </a>
+      </Link>
 
       {/* Play Store link */}
       <a

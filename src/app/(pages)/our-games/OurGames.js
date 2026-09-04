@@ -48,12 +48,9 @@ export default function OurGames() {
             variants={fadeUp}
             className="text-center mb-8 md:mb-10"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Featured <span className="text-orange-500">Games</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+              All <span className="text-orange-500">Games</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-              A showcase of titles built with precision, creativity and a passion for play.
-            </p>
           </motion.div>
 
           {/* Category tabs */}

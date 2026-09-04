@@ -135,7 +135,7 @@ export const games = [
   {
     id: 4,
     slug: "flappy-sky-cloud-runner",
-    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.JumpyTails",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.FlappyCloudy",
     title: "Flappy Sky Cloud Runner",
     genre: "Endless Runner",
     categories: ["Adventure", "Mobile"],

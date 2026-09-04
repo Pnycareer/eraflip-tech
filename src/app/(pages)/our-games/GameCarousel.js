@@ -54,12 +54,9 @@ export default function GameCarousel() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative max-w-7xl mx-auto text-center mb-10 md:mb-14"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">
-          Featured <span className="text-orange-400">Titles</span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+          Our <span className="text-orange-400">Games</span>
         </h2>
-        <p className="text-purple-200/70 max-w-2xl mx-auto text-base sm:text-lg">
-          Explore every game we&apos;ve shipped — one at a time.
-        </p>
       </motion.div>
 
       <div

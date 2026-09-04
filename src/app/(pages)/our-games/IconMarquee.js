@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 
 // 14 icons living in /public/icons/1.webp ... 14.webp
@@ -40,21 +39,6 @@ function Row({ direction = "left", duration = 60, offset = 0 }) {
 export default function IconMarquee() {
   return (
     <section className="relative bg-white pt-28 md:pt-32 pb-12 md:pb-16 overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 md:mb-10 text-center"
-      >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-          Our <span className="text-orange-500">Portfolio</span>
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-          A glimpse of the titles we&apos;ve crafted and shipped.
-        </p>
-      </motion.div>
-
       <div className="space-y-4">
         <Row direction="right" duration={70} offset={0} />
         <Row direction="left" duration={75} offset={5} />
