@@ -87,6 +87,7 @@ export const games = [
   {
     id: 1,
     slug: "barber-shop-simulator",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.BarberHaircutShop",
     title: "Barber Shop Simulator",
     genre: "Simulation",
     categories: ["Adventure", "Mobile"],
@@ -102,6 +103,7 @@ export const games = [
   {
     id: 2,
     slug: "custom-diy-phone-case-maker",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.CustomDIYPhoneCaseMaker",
     title: "Custom DIY Phone Case Maker",
     genre: "Casual Creation",
     categories: ["Adventure", "Mobile"],
@@ -117,6 +119,7 @@ export const games = [
   {
     id: 3,
     slug: "fireworks-simulator-2025",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.FireworkSimulator2025",
     title: "Fireworks Simulator 2025",
     genre: "Simulation",
     categories: ["Action", "Mobile"],
@@ -132,6 +135,7 @@ export const games = [
   {
     id: 4,
     slug: "flappy-sky-cloud-runner",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.JumpyTails",
     title: "Flappy Sky Cloud Runner",
     genre: "Endless Runner",
     categories: ["Adventure", "Mobile"],
@@ -147,6 +151,7 @@ export const games = [
   {
     id: 5,
     slug: "home-makeover-asmr-cleaning",
+    playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.HomeMakeoverASMRCleaning",
     title: "Home Makeover ASMR Cleaning",
     genre: "Simulation",
     categories: ["Adventure", "Mobile"],
@@ -162,6 +167,7 @@ export const games = [
   {
     id: 6,
     slug: "jungle-fury",
+    playStore: "https://play.google.com/store/apps/details?id=com.eraflip.junglefury",
     title: "Jungle Fury",
     genre: "2D Platformer",
     categories: ["Action", "Adventure", "Mobile"],
@@ -177,6 +183,7 @@ export const games = [
   {
     id: 7,
     slug: "mtb-downhill-bike-race",
+    playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.UrbanDescentPOV",
     title: "MTB Downhill Bike Race",
     genre: "Racing",
     categories: ["Racing", "Mobile"],
@@ -192,6 +199,7 @@ export const games = [
   {
     id: 8,
     slug: "real-gun-sound-simulator",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.RealGunSoundSimulator",
     title: "Real Gun Sound Simulator",
     genre: "Simulation",
     categories: ["Action", "Mobile"],
@@ -207,6 +215,7 @@ export const games = [
   {
     id: 9,
     slug: "road-rush-traffic-jam-puzzle",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.BusEscapeParkingJamGame",
     title: "Road Rush: Traffic Jam Puzzle",
     genre: "Puzzle",
     categories: ["RPG", "Mobile"],
@@ -222,6 +231,7 @@ export const games = [
   {
     id: 10,
     slug: "summit-peak",
+    playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.SummitPeakOffroad",
     title: "Summit Peak",
     genre: "Adventure",
     categories: ["Adventure", "Mobile"],
@@ -237,6 +247,7 @@ export const games = [
   {
     id: 11,
     slug: "teacher-simulator",
+    playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.HighSchoolTeacherLifeGames",
     title: "Teacher Simulator",
     genre: "Simulation",
     categories: ["Adventure", "Mobile"],

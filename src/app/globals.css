@@ -171,4 +171,18 @@ body {
     .animation-delay-2000 {
       animation-delay: 2s;
     }
- 
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-25%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-25%); }
+  to { transform: translateX(0); }
+}
+.marquee-track-left {
+  animation: marquee-left linear infinite;
+}
+.marquee-track-right {
+  animation: marquee-right linear infinite;
+}
