@@ -13,6 +13,7 @@ export default function GameCarousel() {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
+  const draggedRef = useRef(false);
 
   const count = games.length;
   const game = games[active];
@@ -84,8 +85,8 @@ export default function GameCarousel() {
         </button>
 
         {/* stage */}
-        <div className="relative" style={{ transformStyle: "preserve-3d" }}>
-          <AnimatePresence mode="popLayout" custom={direction}>
+        <div className="relative md:min-h-[34rem]" style={{ transformStyle: "preserve-3d" }}>
+          <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={game.id}
               custom={direction}
@@ -93,15 +94,21 @@ export default function GameCarousel() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.15}
+              onDragStart={() => {
+                draggedRef.current = true;
+              }}
               onDragEnd={(_, info) => {
                 if (info.offset.x < -80) go(1);
                 else if (info.offset.x > 80) go(-1);
+                setTimeout(() => {
+                  draggedRef.current = false;
+                }, 50);
               }}
-              className="w-full"
+              className="w-full md:absolute md:inset-0"
               style={{ transformStyle: "preserve-3d" }}
             >
               <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center rounded-3xl border border-white/10 bg-gradient-to-br from-[#3a1058] via-[#2c0b45] to-[#1f0733] p-5 sm:p-8 md:p-10 shadow-[0_40px_120px_-20px_rgba(120,20,180,0.55)]">
@@ -161,6 +168,9 @@ export default function GameCarousel() {
                       href={game.playStore}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => {
+                        if (draggedRef.current) e.preventDefault();
+                      }}
                       className="inline-flex items-center gap-2.5 rounded-xl bg-white px-4 py-2.5 text-[#1f0733] shadow-lg hover:-translate-y-0.5 transition-transform"
                     >
                       <Smartphone className="w-6 h-6 text-emerald-500" />
