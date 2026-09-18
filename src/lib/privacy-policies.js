@@ -756,6 +756,262 @@ export const privacyPolicies = {
     metaDescription:
       "Privacy Policy for Paint Flags by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
   }),
+
+  "chameleon": createStandardPolicy({
+    slug: "chameleon",
+    gameName: "Chameleon",
+    aboutGame:
+      "Chameleon is a hide-and-seek game where players use a painting system to blend their character into the surrounding environment. Players can change their character's appearance to match walls, floors, furniture, and other elements of the map while hiding from seekers. Seekers search the environment for hidden players, making strategy, timing, and careful observation important parts of the gameplay.",
+    updatedAt: "18/09/2026",
+    metaDescription:
+      "Privacy Policy for Chameleon by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, security, and contact details.",
+  }),
+
+  "steal-an-egg": {
+    slug: "steal-an-egg",
+    gameName: "Steal An Egg",
+    title: "Privacy Policy - Steal An Egg",
+    updatedAt: "18/09/2026",
+    platform: "Android game",
+    servicesSummary: "Google AdMob + Firebase",
+    metaDescription:
+      "Privacy Policy for Steal An Egg by Eraflip Tech, including AdMob, Firebase, ad preferences, children's privacy, data retention, security, and contact details.",
+    intro:
+      "Eraflip Tech built Steal An Egg as a free game for Android devices. This Service is provided by Eraflip Tech at no cost and is intended for use as is.",
+    highlights: [
+      "Free Android game",
+      "Google AdMob and Firebase",
+      "No direct personal data collection",
+      "Support: support@eraflip.com",
+    ],
+    contact: STANDARD_CONTACT,
+    sections: [
+      {
+        title: "About the Game",
+        content: [
+          {
+            type: "paragraph",
+            text: "Steal An Egg is a casual game where players collect, hatch, and steal eggs to build their collection of pets.",
+          },
+          {
+            type: "paragraph",
+            text: "Players can:",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Steal eggs from pets and other players.",
+              "Hatch eggs to collect rare pets.",
+              "Earn in-game money from their pets.",
+              "Upgrade their treadmill and base.",
+              "Train on the treadmill to increase speed.",
+              "Discover rarer eggs, pets, sizes, and mutations.",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "The game may include advertisements and analytics services to support gameplay, improve performance, and maintain the quality of the application.",
+          },
+        ],
+      },
+      {
+        title: "Information Collection and Use",
+        content: [
+          {
+            type: "paragraph",
+            text: "Eraflip Tech does not directly request users to provide personal information through Steal An Egg.",
+          },
+          {
+            type: "paragraph",
+            text: "However, the game uses third-party services such as Google AdMob and Firebase, which may automatically collect certain information for advertising, analytics, application performance, crash reporting, and security purposes.",
+          },
+          {
+            type: "paragraph",
+            text: "Information that may be collected automatically includes:",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Device type and model",
+              "Operating system version",
+              "Advertising ID, where available",
+              "IP address and approximate location",
+              "App interactions",
+              "Advertisement views, clicks, and impressions",
+              "Gameplay events and analytics",
+              "Crash reports",
+              "Performance and diagnostic information",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "This information may be used to:",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Display advertisements",
+              "Measure advertising performance",
+              "Improve application stability and performance",
+              "Analyze gameplay trends",
+              "Detect crashes and technical issues",
+              "Prevent fraud, abuse, and invalid activity",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "Eraflip Tech does not require users to submit personally identifiable information in order to play Steal An Egg.",
+          },
+        ],
+      },
+      {
+        title: "Third-Party Services",
+        content: [
+          {
+            type: "paragraph",
+            text: "Google AdMob may be used to display advertisements within the game. Firebase may be used for analytics, crash reporting, application performance monitoring, and other technical services.",
+          },
+          {
+            type: "links",
+            items: [
+              {
+                label: "Google AdMob (Google LLC)",
+                href: "https://policies.google.com/privacy",
+                description: "Google Privacy Policy",
+              },
+              {
+                label: "Google Advertising Technologies",
+                href: "https://policies.google.com/technologies/ads",
+                description: "Ad Technology",
+              },
+              {
+                label: "Firebase (Google LLC)",
+                href: "https://firebase.google.com/support/privacy",
+                description: "Firebase Privacy & Security",
+              },
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "Google may use device identifiers and similar technologies according to its own privacy policies and applicable laws.",
+          },
+        ],
+      },
+      {
+        title: "Personalized Ads and User Choices",
+        content: [
+          {
+            type: "paragraph",
+            text: "Depending on your country or region, you may be asked for consent before personalized advertisements are shown.",
+          },
+          {
+            type: "paragraph",
+            text: "You can manage your advertising preferences through your Android device or Google account settings. Available options may include:",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Managing advertising privacy settings",
+              "Resetting your Advertising ID, where supported",
+              "Deleting your Advertising ID, where supported",
+              "Limiting or disabling personalized advertisements",
+            ],
+          },
+          {
+            type: "paragraph",
+            text: "You may still receive advertisements after changing these settings, but they may be less relevant to your interests.",
+          },
+        ],
+      },
+      {
+        title: "Children's Privacy",
+        content: [
+          {
+            type: "paragraph",
+            text: "Eraflip Tech does not knowingly request or collect personal information directly from children through Steal An Egg.",
+          },
+          {
+            type: "paragraph",
+            text: "Where required by applicable laws or platform policies, advertising services may use appropriate restrictions, including non-personalized or limited advertisements.",
+          },
+          {
+            type: "paragraph",
+            text: "Firebase services may be used for application stability, analytics, and technical performance and are not intended by Eraflip Tech to personally identify individual users.",
+          },
+          {
+            type: "paragraph",
+            text: "If you are a parent or guardian and believe that a child has provided personal information through the application, please contact us so that we can review the matter and take appropriate action.",
+          },
+        ],
+      },
+      {
+        title: "Data Security",
+        content: [
+          {
+            type: "paragraph",
+            text: "Eraflip Tech takes reasonable measures to provide a safe and reliable gaming experience.",
+          },
+          {
+            type: "paragraph",
+            text: "We do not operate our own system for collecting personal information directly submitted by users through Steal An Egg.",
+          },
+          {
+            type: "paragraph",
+            text: "Advertising, analytics, crash reporting, diagnostics, and related data processing provided through Google AdMob and Firebase are handled according to Google's applicable privacy and security practices.",
+          },
+          {
+            type: "paragraph",
+            text: "Please note that no method of electronic transmission or storage can be guaranteed to be completely secure.",
+          },
+        ],
+      },
+      {
+        title: "Data Retention",
+        content: [
+          {
+            type: "paragraph",
+            text: "Data processed through third-party services such as Google AdMob and Firebase may be retained according to Google's applicable data-retention policies and the configuration of those services.",
+          },
+          {
+            type: "paragraph",
+            text: "Eraflip Tech does not maintain a separate database containing personal information directly submitted by players through Steal An Egg.",
+          },
+        ],
+      },
+      {
+        title: "Changes to This Privacy Policy",
+        content: [
+          {
+            type: "paragraph",
+            text: "We may update this Privacy Policy from time to time to reflect changes to Steal An Egg, third-party services, legal requirements, or our privacy practices.",
+          },
+          {
+            type: "paragraph",
+            text: "Any changes will be published on this page, and the Last Updated date will be revised accordingly. Users are advised to review this Privacy Policy periodically for any updates.",
+          },
+        ],
+      },
+      {
+        title: "Contact Us",
+        content: [
+          {
+            type: "paragraph",
+            text: "If you have any questions, concerns, or requests regarding this Privacy Policy or Steal An Egg, you can contact us using the details below:",
+          },
+          {
+            type: "bullets",
+            items: [
+              "Developer: Eraflip Tech",
+              "Email: support@eraflip.com",
+              "Website: https://erafliptech.com",
+              "Phone: +92 309 7770073",
+              "Address: 428N, Johar Town, Lahore, Pakistan",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export const privacyPolicyList = Object.values(privacyPolicies).sort((a, b) =>
