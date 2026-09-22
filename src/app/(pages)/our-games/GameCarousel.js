@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Smartphone } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 import { games } from "./gamesData";
+import GooglePlayIcon from "./GooglePlayIcon";
 
 const AUTO_MS = 6000;
 
@@ -42,10 +43,10 @@ export default function GameCarousel() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#26073a] via-[#1b0630] to-[#26073a] py-16 md:py-24 px-4 sm:px-6">
+    <section className="relative overflow-hidden bg-white py-16 md:py-24 px-4 sm:px-6">
       {/* ambient glows */}
-      <div className="pointer-events-none absolute -top-24 left-1/4 w-[30rem] h-[30rem] rounded-full bg-fuchsia-600/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-24 right-1/4 w-[28rem] h-[28rem] rounded-full bg-emerald-500/15 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-24 left-1/4 w-[30rem] h-[30rem] rounded-full bg-orange-200/40 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-24 right-1/4 w-[28rem] h-[28rem] rounded-full bg-fuchsia-200/30 blur-[120px]" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -54,8 +55,8 @@ export default function GameCarousel() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative max-w-7xl mx-auto text-center mb-10 md:mb-14"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-          Our <span className="text-orange-400">Games</span>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+          Our <span className="text-orange-500">Games</span>
         </h2>
       </motion.div>
 
@@ -69,14 +70,14 @@ export default function GameCarousel() {
         <button
           onClick={() => go(-1)}
           aria-label="Previous game"
-          className="absolute -left-2 sm:-left-6 lg:-left-14 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-11 h-16 sm:w-14 sm:h-20 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 text-white backdrop-blur-md transition-colors"
+          className="absolute -left-2 sm:-left-6 lg:-left-14 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-11 h-16 sm:w-14 sm:h-20 rounded-2xl bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-700 shadow-sm backdrop-blur-md transition-colors"
         >
           <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
         </button>
         <button
           onClick={() => go(1)}
           aria-label="Next game"
-          className="absolute -right-2 sm:-right-6 lg:-right-14 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-11 h-16 sm:w-14 sm:h-20 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/15 text-white backdrop-blur-md transition-colors"
+          className="absolute -right-2 sm:-right-6 lg:-right-14 top-1/2 -translate-y-1/2 z-20 grid place-items-center w-11 h-16 sm:w-14 sm:h-20 rounded-2xl bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-700 shadow-sm backdrop-blur-md transition-colors"
         >
           <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
         </button>
@@ -108,32 +109,32 @@ export default function GameCarousel() {
               className="w-full md:absolute md:inset-0"
               style={{ transformStyle: "preserve-3d" }}
             >
-              <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center rounded-3xl border border-white/10 bg-gradient-to-br from-[#3a1058] via-[#2c0b45] to-[#1f0733] p-5 sm:p-8 md:p-10 shadow-[0_40px_120px_-20px_rgba(120,20,180,0.55)]">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center rounded-3xl border border-gray-200 bg-white p-5 sm:p-8 md:p-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]">
                 {/* big screenshot */}
                 <motion.div
                   initial={{ rotateY: 12, opacity: 0 }}
                   animate={{ rotateY: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.05 }}
-                  className="relative mx-auto w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)]"
+                  className="relative mx-auto w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-gray-200 bg-gray-50 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.25)]"
                 >
                   <Image
                     src={heroShot}
                     alt={game.title}
                     fill
                     sizes="(max-width: 768px) 90vw, 400px"
-                    className="object-cover"
+                    className="object-contain"
                     priority
                   />
                 </motion.div>
 
                 {/* details */}
                 <div className="text-left">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
                     {game.title}
                   </h3>
 
                   <div className="mt-3 flex items-center gap-2">
-                    <span className="text-xl sm:text-2xl font-bold text-white">{game.rating}</span>
+                    <span className="text-xl sm:text-2xl font-bold text-gray-900">{game.rating}</span>
                     <span className="flex items-center gap-0.5">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star
@@ -141,21 +142,21 @@ export default function GameCarousel() {
                           className={`w-4 h-4 sm:w-5 sm:h-5 ${
                             i < Math.round(game.rating)
                               ? "fill-orange-400 text-orange-400"
-                              : "text-white/25"
+                              : "text-gray-200"
                           }`}
                         />
                       ))}
                     </span>
-                    <span className="text-purple-200/60 text-sm sm:text-base">
+                    <span className="text-gray-500 text-sm sm:text-base">
                       {game.downloads} Downloads
                     </span>
                   </div>
 
                   <div className="mt-5 flex items-start gap-4">
-                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-lg">
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-2xl overflow-hidden ring-1 ring-gray-200 shadow-lg">
                       <Image src={iconShot} alt={`${game.title} icon`} fill sizes="96px" className="object-cover" />
                     </div>
-                    <p className="text-purple-100/80 text-sm sm:text-base leading-relaxed line-clamp-5">
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed line-clamp-5">
                       {game.description}
                     </p>
                   </div>
@@ -168,11 +169,11 @@ export default function GameCarousel() {
                       onClick={(e) => {
                         if (draggedRef.current) e.preventDefault();
                       }}
-                      className="inline-flex items-center gap-2.5 rounded-xl bg-white px-4 py-2.5 text-[#1f0733] shadow-lg hover:-translate-y-0.5 transition-transform"
+                      className="inline-flex items-center gap-2.5 rounded-xl bg-gray-900 px-4 py-2.5 text-white shadow-lg hover:-translate-y-0.5 hover:bg-black transition-all"
                     >
-                      <Smartphone className="w-6 h-6 text-emerald-500" />
+                      <GooglePlayIcon className="w-6 h-6" />
                       <span className="text-left leading-none">
-                        <span className="block text-[10px] text-gray-500">Get it on</span>
+                        <span className="block text-[10px] text-gray-300">Get it on</span>
                         <span className="block text-sm font-semibold">Google Play</span>
                       </span>
                     </a>
@@ -194,7 +195,7 @@ export default function GameCarousel() {
               }}
               aria-label={`Go to ${g.title}`}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === active ? "w-8 bg-orange-400" : "w-2 bg-white/25 hover:bg-white/40"
+                i === active ? "w-8 bg-orange-400" : "w-2 bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}
