@@ -9,6 +9,7 @@ export const games = [
     slug: "barber-shop-simulator",
     icon: "/icons/Barber Haircut.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.BarberHaircutShop",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Barber Shop Simulator",
     genre: "Simulation",
     categories: ["Adventure", "Mobile"],
@@ -26,6 +27,7 @@ export const games = [
     slug: "custom-diy-phone-case-maker",
     icon: "/icons/Custom Di Phone.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.CustomDIYPhoneCaseMaker",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Custom DIY Phone Case Maker",
     genre: "Casual Creation",
     categories: ["Adventure", "Mobile"],
@@ -43,6 +45,7 @@ export const games = [
     slug: "fireworks-simulator-2025",
     icon: "/icons/Fireworks.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.FireworkSimulator2025",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Fireworks Simulator 2025",
     genre: "Simulation",
     categories: ["Action", "Mobile"],
@@ -60,6 +63,7 @@ export const games = [
     slug: "flappy-sky-cloud-runner",
     icon: "/icons/Flapy Cloudy.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.FlappyCloudy",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Flappy Sky Cloud Runner",
     genre: "Endless Runner",
     categories: ["Adventure", "Mobile"],
@@ -77,6 +81,7 @@ export const games = [
     slug: "home-makeover-asmr-cleaning",
     icon: "/icons/Home Makeover.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.HomeMakeoverASMRCleaning",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Home Makeover ASMR Cleaning",
     genre: "Simulation",
     categories: ["Adventure", "Mobile"],
@@ -94,6 +99,7 @@ export const games = [
     slug: "jungle-fury",
     icon: "/icons/jungle  Fury.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.eraflip.junglefury",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Jungle Fury",
     genre: "2D Platformer",
     categories: ["Action", "Adventure", "Mobile"],
@@ -111,6 +117,7 @@ export const games = [
     slug: "mtb-downhill-bike-race",
     icon: "/icons/MTB Downhill Bike Race Xtreme.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.UrbanDescentPOV",
+    youtubeUrl: null, // TODO: add trailer link
     title: "MTB Downhill Bike Race",
     genre: "Racing",
     categories: ["Racing", "Mobile"],
@@ -128,6 +135,7 @@ export const games = [
     slug: "real-gun-sound-simulator",
     icon: "/icons/Real Gun Sound.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.RealGunSoundSimulator",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Real Gun Sound Simulator",
     genre: "Simulation",
     categories: ["Action", "Mobile"],
@@ -145,6 +153,7 @@ export const games = [
     slug: "road-rush-traffic-jam-puzzle",
     icon: "/icons/Road Rush.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.BusEscapeParkingJamGame",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Road Rush: Traffic Jam Puzzle",
     genre: "Puzzle",
     categories: ["RPG", "Mobile"],
@@ -162,6 +171,7 @@ export const games = [
     slug: "summit-peak",
     icon: "/icons/Summit Peak.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.SummitPeakOffroad",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Summit Peak",
     genre: "Adventure",
     categories: ["Adventure", "Mobile"],
@@ -179,6 +189,7 @@ export const games = [
     slug: "teacher-simulator",
     icon: "/icons/High Scool Teacher Life.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.HighSchoolTeacherLifeGames",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Teacher Simulator",
     genre: "Simulation",
     categories: ["Adventure", "Mobile"],
@@ -196,6 +207,7 @@ export const games = [
     slug: "brick-arrow-escape-puzzle",
     icon: "/icons/Brick Arrow.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.Eraflip.BrickArrowEscapePuzzle",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Brick Arrow: Escape Puzzle",
     genre: "Puzzle",
     categories: ["Mobile"],
@@ -213,6 +225,7 @@ export const games = [
     slug: "jumpy-tails",
     icon: "/icons/Jumpy Tail.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.JumpyTails",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Jumpy Tails",
     genre: "Endless Runner",
     categories: ["Action", "Adventure", "Mobile"],
@@ -229,6 +242,7 @@ export const games = [
     slug: "rest-stop-tycoon",
     icon: "/icons/Rest Stop Tycoon.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.RestStopTycoon",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Rest Stop Tycoon",
     genre: "Idle Tycoon",
     categories: ["Mobile"],
@@ -246,6 +260,7 @@ export const games = [
     slug: "keyboard-asmr-speed-escape",
     icon: "/icons/Speed ASMR Keyboard.webp",
     playStore: "https://play.google.com/store/apps/details?id=com.EraFlip.SpeedASMRKeyboardEscape",
+    youtubeUrl: null, // TODO: add trailer link
     title: "Keyboard ASMR Speed Escape",
     genre: "Runner",
     categories: ["Action", "Mobile"],
@@ -262,6 +277,7 @@ export const games = [
     slug: "steal-an-egg",
     icon: "/icons/Steal and Egg.webp",
     playStore: null,
+    youtubeUrl: null, // TODO: add trailer link
     title: "Steal An Egg",
     genre: "Casual",
     categories: ["Adventure", "Mobile"],
