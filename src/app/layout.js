@@ -1,17 +1,25 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, Rajdhani } from "next/font/google";
 import "./globals.css";           // درست نام
 // import "./Style";              // صرف تب ہی رکھیں اگر Style.js موجود ہے
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const rajdhani = Rajdhani({
+  variable: "--font-rajdhani",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -23,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${rajdhani.variable} antialiased`}
       >
         <Navbar />
         {children}

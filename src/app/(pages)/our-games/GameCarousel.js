@@ -18,7 +18,7 @@ export default function GameCarousel() {
 
   const count = games.length;
   const game = games[active];
-  // both visuals come from the game's own screenshots
+  // both visuals come from the game's own screenshots (served from public/Webp/<game>)
   const heroShot = game.screenshots[1] ?? game.screenshots[0];
   const iconShot = game.screenshots[0];
 
@@ -50,8 +50,7 @@ export default function GameCarousel() {
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.4 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative max-w-7xl mx-auto text-center mb-10 md:mb-14"
       >
@@ -84,7 +83,7 @@ export default function GameCarousel() {
 
         {/* stage */}
         <div className="relative md:min-h-[34rem]" style={{ transformStyle: "preserve-3d" }}>
-          <AnimatePresence mode="wait" custom={direction}>
+          <AnimatePresence mode="wait" custom={direction} initial={false}>
             <motion.div
               key={game.id}
               custom={direction}
@@ -112,9 +111,6 @@ export default function GameCarousel() {
               <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center rounded-3xl border border-gray-200 bg-white p-5 sm:p-8 md:p-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]">
                 {/* big screenshot */}
                 <motion.div
-                  initial={{ rotateY: 12, opacity: 0 }}
-                  animate={{ rotateY: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.05 }}
                   className="relative mx-auto w-full max-w-sm aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-gray-200 bg-gray-50 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.25)]"
                 >
                   <Image
@@ -134,21 +130,25 @@ export default function GameCarousel() {
                   </h3>
 
                   <div className="mt-3 flex items-center gap-2">
-                    <span className="text-xl sm:text-2xl font-bold text-gray-900">{game.rating}</span>
-                    <span className="flex items-center gap-0.5">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-4 h-4 sm:w-5 sm:h-5 ${
-                            i < Math.round(game.rating)
-                              ? "fill-orange-400 text-orange-400"
-                              : "text-gray-200"
-                          }`}
-                        />
-                      ))}
-                    </span>
+                    {game.rating && (
+                      <>
+                        <span className="text-xl sm:text-2xl font-bold text-gray-900">{game.rating}</span>
+                        <span className="flex items-center gap-0.5">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-4 h-4 sm:w-5 sm:h-5 ${
+                                i < Math.round(game.rating)
+                                  ? "fill-orange-400 text-orange-400"
+                                  : "text-gray-200"
+                              }`}
+                            />
+                          ))}
+                        </span>
+                      </>
+                    )}
                     <span className="text-gray-500 text-sm sm:text-base">
-                      {game.downloads} Downloads
+                      {game.downloads ? `${game.downloads} Downloads` : game.status}
                     </span>
                   </div>
 
@@ -162,6 +162,7 @@ export default function GameCarousel() {
                   </div>
 
                   <div className="mt-6 flex flex-wrap gap-3">
+                    {game.playStore && (
                     <a
                       href={game.playStore}
                       target="_blank"
@@ -177,6 +178,7 @@ export default function GameCarousel() {
                         <span className="block text-sm font-semibold">Google Play</span>
                       </span>
                     </a>
+                    )}
                   </div>
                 </div>
               </div>

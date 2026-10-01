@@ -105,12 +105,16 @@ export default function GameDetail({ game, related }) {
               <p className="text-orange-400 text-xs font-semibold uppercase tracking-widest mb-1">{game.genre}</p>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">{game.title}</h1>
 
-              <div className="flex items-center gap-1 mb-5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className={`w-4 h-4 ${i < Math.round(game.rating) ? "fill-orange-400 text-orange-400" : "text-gray-600"}`} />
-                ))}
-                <span className="text-sm text-gray-300 ml-1">{game.rating} · {game.downloads} downloads</span>
-              </div>
+              {(game.rating || game.downloads) && (
+                <div className="flex items-center gap-1 mb-5">
+                  {game.rating && Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className={`w-4 h-4 ${i < Math.round(game.rating) ? "fill-orange-400 text-orange-400" : "text-gray-600"}`} />
+                  ))}
+                  <span className="text-sm text-gray-300 ml-1">
+                    {[game.rating, game.downloads && `${game.downloads} downloads`].filter(Boolean).join(" · ")}
+                  </span>
+                </div>
+              )}
 
               <p className="text-gray-300 leading-relaxed mb-6">{game.description}</p>
 

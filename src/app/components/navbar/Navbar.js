@@ -158,7 +158,7 @@ const Navbar = () => {
                 }`}></span>
               </Link>
 
-              {/* <Link
+              <Link
                 href="/our-games"
                 onClick={handleLinkClick}
                 className={`text-sm font-medium transition-all duration-200 relative group ${
@@ -169,7 +169,7 @@ const Navbar = () => {
                 <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transition-all duration-300 ${
                   isActive("/our-games") ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
                 }`}></span>
-              </Link> */}
+              </Link>
 
               <div
                 className="relative"
@@ -263,7 +263,7 @@ const Navbar = () => {
               About Us
             </Link>
 
-            {/* <Link
+            <Link
               href="/our-games"
               onClick={handleLinkClick}
               className={`flex items-center py-3 text-base font-medium border-b border-gray-700 ${
@@ -271,7 +271,7 @@ const Navbar = () => {
               } transition-all duration-300`}
             >
               Our Games
-            </Link> */}
+            </Link>
 
             <div className="border-b border-gray-700">
               <button

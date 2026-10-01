@@ -27,6 +27,7 @@ function Row({ direction = "left", duration = 60, offset = 0 }) {
               alt={`Game icon ${(i % 14) + 1}`}
               fill
               sizes="160px"
+              loading="eager"
               className="object-cover"
             />
           </div>
